@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\foro;
 use Illuminate\Database\Seeder;
 
 class ForoSeeder extends Seeder
@@ -13,6 +14,20 @@ class ForoSeeder extends Seeder
      */
     public function run()
     {
-        //
+        foro::created([
+            'nombre'=>'Anuncios'
+        ]);
+
+        foro::created([
+            'nombre'=>'Informacion'
+        ]);
+
+        foro::created([
+            'nombre'=>'General'
+        ]);
+
+        foro::created([
+            'nombre'=>'Off-topic'
+        ]);
     }
 }
