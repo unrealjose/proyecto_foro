@@ -16,8 +16,17 @@ class CreateTemasTable extends Migration
         Schema::create('temas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->foreign('id_foro');
-            $table->foreign('id_user');
+
+            $table->foreignId('foro_id');
+            $table->foreign('foro_id')
+                ->references('id')->on('foros')
+                ->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreignId('user_id');
+            $table->foreign('user_id')
+            ->references('id')->on('users')
+            ->onDelete('cascade')->onUpdate('cascade');
+
             $table->timestamps();
         });
     }
