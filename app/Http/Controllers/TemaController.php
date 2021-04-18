@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Foro;
 use App\Models\Tema;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,11 @@ class TemaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
-        //
+        $id = $req->get('id');
+        $temas = Tema::orderBy('nombre')->where('foro_id','=', $id)->get();
+        return view('tema.index', compact('temas'));
     }
 
     /**

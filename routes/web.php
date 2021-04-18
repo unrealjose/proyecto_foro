@@ -19,6 +19,8 @@ Route::get('/', function () {
 });
 
 Route::resource('foro', ForoController::class);
+Route::resource('tema', TemaController::class);
+Route::resource('post', PostController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

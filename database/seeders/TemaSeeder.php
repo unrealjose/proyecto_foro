@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Tema;
 
 class TemaSeeder extends Seeder
 {
@@ -13,6 +14,10 @@ class TemaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Tema::create([
+            'nombre'=>'Nuevos cambios',
+            'foro_id'=>1,
+            'user_id'=>1
+        ]);
     }
 }
