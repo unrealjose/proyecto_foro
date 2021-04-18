@@ -14,20 +14,24 @@ class ForoSeeder extends Seeder
      */
     public function run()
     {
-        foro::created([
-            'nombre'=>'Anuncios'
+        foro::create([
+            'nombre'=>'Anuncios',
+            'descripcion'=>'Anuncios de algo'
         ]);
 
-        foro::created([
-            'nombre'=>'Informacion'
+        foro::create([
+            'nombre'=>'Informacion',
+            'descripcion'=>'Informacion de algo'
         ]);
 
-        foro::created([
-            'nombre'=>'General'
+        foro::create([
+            'nombre'=>'General',
+            'descripcion'=>'General de algo'
         ]);
 
-        foro::created([
-            'nombre'=>'Off-topic'
+        foro::create([
+            'nombre'=>'Off-topic',
+            'descripcion'=>'Off-topic de lo que sea'
         ]);
     }
 }

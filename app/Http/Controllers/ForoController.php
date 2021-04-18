@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\foro;
+use App\Models\Foro;
 use Illuminate\Http\Request;
 
 class ForoController extends Controller
@@ -14,7 +14,8 @@ class ForoController extends Controller
      */
     public function index()
     {
-        return view('foro.index');
+        $foro = Foro::orderBy('nombre')->get();
+        return view('foro.index', compact('foro'));
     }
 
     /**
@@ -41,10 +42,10 @@ class ForoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\foro  $foro
+     * @param  \App\Models\Foro  $foro
      * @return \Illuminate\Http\Response
      */
-    public function show(foro $foro)
+    public function show(Foro $foro)
     {
         //
     }
@@ -52,10 +53,10 @@ class ForoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\foro  $foro
+     * @param  \App\Models\Foro  $foro
      * @return \Illuminate\Http\Response
      */
-    public function edit(foro $foro)
+    public function edit(Foro $foro)
     {
         //
     }
@@ -64,10 +65,10 @@ class ForoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\foro  $foro
+     * @param  \App\Models\Foro  $foro
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, foro $foro)
+    public function update(Request $request, Foro $foro)
     {
         //
     }
@@ -75,10 +76,10 @@ class ForoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\foro  $foro
+     * @param  \App\Models\Foro  $foro
      * @return \Illuminate\Http\Response
      */
-    public function destroy(foro $foro)
+    public function destroy(Foro $foro)
     {
         //
     }
