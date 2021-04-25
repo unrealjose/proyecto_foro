@@ -20,7 +20,11 @@
                         <tbody>
                             @foreach ($posts as $item)
                             <tr class="bg-emerald-200 my-2 py-8">
-                                <td>{{$item->user_id}}</td>
+                                @php
+                                    $num_id_user = intval($item->user_id);
+                                    $id_user = $num_id_user-1;
+                                @endphp
+                                <td>{{$user[$id_user]->name}}</td>
                                 <td>{{$item->mensaje}}</td>
                                 <td>{{$item->created_at}}</td>
                               </tr>
