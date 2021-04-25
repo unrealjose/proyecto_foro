@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -12,9 +14,13 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
-        //
+        $tema_id = $req->get('tema_id');
+        $foro_id = $req->get('foro_id');
+        //dd($tema_id);
+        $posts = Post::orderBy('id')->where('tema_id','=', $tema_id)->get();
+        return view('post.index', compact('posts','tema_id','foro_id'));
     }
 
     /**
@@ -22,9 +28,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $req)
     {
-        //
+
     }
 
     /**
@@ -33,9 +39,16 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+       //dd($req);
+       $post = new Post();
+       $post->user_id = auth()->user()->id;
+       $post->foro_id = $req->foro_id;
+       $post->tema_id = $req->tema_id;
+       $post->mensaje = $req->mensaje;
+       $post->save();
+       return redirect()->back();
     }
 
     /**

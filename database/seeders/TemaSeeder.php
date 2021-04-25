@@ -19,5 +19,17 @@ class TemaSeeder extends Seeder
             'foro_id'=>1,
             'user_id'=>1
         ]);
+
+        Tema::create([
+            'nombre'=>'Nuevos cambios 2',
+            'foro_id'=>1,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'AAA',
+            'foro_id'=>2,
+            'user_id'=>1
+        ]);
     }
 }

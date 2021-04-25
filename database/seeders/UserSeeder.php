@@ -22,5 +22,13 @@ class UserSeeder extends Seeder
             'rango'=>2,
             'email_verified_at'=>now()
         ]);
+
+        User::create([
+            'name'=>'UserNormal',
+            'email'=>'userNormal@foro.es',
+            'password'=>Hash::make('user'),
+            'rango'=>1,
+            'email_verified_at'=>now()
+        ]);
     }
 }

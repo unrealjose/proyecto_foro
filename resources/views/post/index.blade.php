@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Foro') }}
+            {{ __('Post') }}
         </h2>
     </x-slot>
 
@@ -12,20 +12,29 @@
                     <table class="table-auto my-2 py-8">
                         <thead class="font-bold bg-gray-100 my-2 py-8">
                             <tr>
-                                <th>Titulo</th>
-                                <th>Descripcion</th>
+                                <th>Creador</th>
+                                <th>Mensaje</th>
+                                <th>Fecha de creacion</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($foro as $item)
+                            @foreach ($posts as $item)
                             <tr class="bg-emerald-200 my-2 py-8">
-                                <td><a href="{{route('tema.index',['foro_id'=>$item->id])}}">{{$item->nombre}}</a></td>
-                                <td>{{$item->descripcion}}</td>
+                                <td>{{$item->user_id}}</td>
+                                <td>{{$item->mensaje}}</td>
+                                <td>{{$item->created_at}}</td>
                               </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
+                <form name="form" method="POST" action="{{route('post.store')}}">
+                    @csrf
+                    <textarea name="mensaje"></textarea>
+                    <input type="hidden" name="foro_id" value="{{$foro_id}}">
+                    <input type="hidden" name="tema_id" value="{{$tema_id}}">
+                    <button type="submit">Enviar</button>
+                </form>
             </div>
         </div>
     </div>

@@ -15,9 +15,10 @@ class TemaController extends Controller
      */
     public function index(Request $req)
     {
-        $id = $req->get('id');
-        $temas = Tema::orderBy('nombre')->where('foro_id','=', $id)->get();
-        return view('tema.index', compact('temas'));
+        //dd($req);
+        $foro_id = $req->get('foro_id');
+        $temas = Tema::orderBy('id')->where('foro_id','=', $foro_id)->get();
+        return view('tema.index', compact('temas','foro_id'));
     }
 
     /**

@@ -9,8 +9,6 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    Problema: Poner el nombre del creados<br>
-                    Solucion1: Quitar los IDs y poner directamente el nombre, haciendo que 2 users no puedan repetir nombre
                     <table class="table-auto my-2 py-8">
                         <thead class="font-bold bg-gray-100 my-2 py-8">
                             <tr>
@@ -23,7 +21,7 @@
                         <tbody>
                             @foreach ($temas as $item)
                             <tr class="bg-emerald-200 my-2 py-8">
-                                <td><a href="#">{{$item->nombre}}</a></td>
+                                <td><a href="{{route('post.index',['tema_id'=>$item->id,'foro_id'=>$item->foro_id])}}">{{$item->nombre}}</a></td>
                                 <td>{{$item->user_id}}</td>
                                 <td>{{$item->created_at}}</td>
                                 <td>{{$item->updated_at}}</td>
