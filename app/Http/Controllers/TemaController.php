@@ -28,9 +28,11 @@ class TemaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $req)
     {
-        //
+        //dd($req);
+        $foro_id = $req->foro_id;
+        return view('tema.create', compact('foro_id'));
     }
 
     /**
@@ -41,7 +43,15 @@ class TemaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $tema = new Tema();
+        $tema->nombre = $request->nombre;
+        $tema->foro_id = $request->foro_id;
+        $tema->user_id = auth()->user()->id;
+        $tema->save();
+        //dd($request);
+        return redirect()->route('foro.index');
+
     }
 
     /**

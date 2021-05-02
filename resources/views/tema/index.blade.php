@@ -11,15 +11,15 @@
                 <div class="p-6 bg-white border-b border-gray-200">
 
                     <!-- Boton Nuevo Tema -->
-                    <a href="#" class="bg-blue-500 px-4 py-2 text-xs font-semibold tracking-wider text-white inline-flex items-center space-x-2 rounded hover:bg-blue-600">
-                        <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                              </svg>
-                        </span>
-                        <span>
-                            Nuevo Tema
-                        </span>
+                    <a href="{{route('tema.create',['foro_id'=>$foro_id])}}">
+                        <div class="inline-block mr-2 mt-2">
+                            <button type="button" class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gray-500 hover:bg-gray-600 hover:shadow-lg flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                </svg>
+                                Nuevo Tema
+                            </button>
+                        </div>
                     </a>
                     <!-- Fin Boton Nuevo Tema -->
 
@@ -42,7 +42,7 @@
                               </tr>
                             @endforeach
                         </tr>
-                      </table>
+                    </table>
                 </div>
             </div>
         </div>
