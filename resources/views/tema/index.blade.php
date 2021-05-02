@@ -23,15 +23,13 @@
                     </a>
                     <!-- Fin Boton Nuevo Tema -->
 
-                    <table class="table-auto my-2 py-8">
-                        <thead class="font-bold bg-gray-100 my-2 py-8">
-                            <tr>
-                                <th>Titulo</th>
-                                <th>Creador</th>
-                                <th>Fecha de creacion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-200 text-gray-800">
+                        <tr class="text-left border-b-2 border-gray-300">
+                          <th class="px-4 py-3">Titulo</th>
+                          <th class="px-4 py-3">Creador</th>
+                          <th class="px-4 py-3">Fecha de creacion</th>
+                        </tr>
+                        <tr class="bg-gray-100 border-b border-gray-200">
                             @foreach ($temas as $item)
                             <tr class="bg-emerald-200 my-2 py-8">
                                 @php
@@ -43,8 +41,8 @@
                                 <td>{{$item->created_at}}</td>
                               </tr>
                             @endforeach
-                        </tbody>
-                    </table>
+                        </tr>
+                      </table>
                 </div>
             </div>
         </div>
