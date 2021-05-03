@@ -14,6 +14,8 @@
                           <th class="px-4 py-3">Creador</th>
                           <th class="px-4 py-3">Mensaje</th>
                           <th class="px-4 py-3">Fecha de creacion</th>
+                          <th class="px-4 py-3">Rango user (Provisional)</th>
+                          <th class="px-4 py-3">Acciones</th>
                         </tr>
                         <tr class="bg-gray-100 border-b border-gray-200">
                             @foreach ($posts as $item)
@@ -25,6 +27,17 @@
                                 <td>{{$user[$id_user]->name}}</td>
                                 <td>{{$item->mensaje}}</td>
                                 <td>{{$item->created_at}}</td>
+                                <td>{{$user[$id_user]->rango}}</td>
+
+                                @if($user[$id_user]->rango == 2 && $user[$id_user]->id == $user_id)
+                                    <td>Mismo User y Moderador</td>
+                                @elseif($user[$id_user]->rango == 2 && $user[$id_user]->id != $user_id)
+                                    <td>Distinto User pero Moderador</td>
+                                @elseif($user[$id_user]->rango != 2 && $user[$id_user]->id == $user_id)
+                                    <td>Mismo User pero no es Moderador</td>
+                                @else
+                                    <td>Distinto user pero no es Moderador</dt>
+                                @endif
                               </tr>
                             @endforeach
                         </tr>

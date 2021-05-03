@@ -19,9 +19,10 @@ class PostController extends Controller
         $tema_id = $req->get('tema_id');
         $foro_id = $req->get('foro_id');
         $user = User::orderBy('id')->get();
-        //dd($tema_id);
+        $user_id = auth()->user()->id;
+        //dd($user_id);
         $posts = Post::orderBy('id')->where('tema_id','=', $tema_id)->get();
-        return view('post.index', compact('posts','tema_id','foro_id','user'));
+        return view('post.index', compact('posts','tema_id','foro_id','user','user_id'));
     }
 
     /**
