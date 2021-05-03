@@ -72,7 +72,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        //dd($post);
+        //$foro_id = $req->foro_id;
+        return view('post.edit', compact('post'));
     }
 
     /**
@@ -84,7 +86,14 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        //dd($request);
+        //$post = new Post();
+        //$post->user_id = auth()->user()->id;
+        //$post->foro_id = $req->foro_id;
+        //$post->tema_id = $req->tema_id;
+        $post->mensaje = $request->mensaje;
+        $post->update();
+        return redirect()->route('foro.index');
     }
 
     /**

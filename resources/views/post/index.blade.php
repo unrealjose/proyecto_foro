@@ -26,18 +26,18 @@
                                 @endphp
                                 <td>{{$user[$id_user]->name}}</td>
                                 <td>{{$item->mensaje}}</td>
-                                <td>{{$item->created_at}}</td>
+                                <td>{{$item->updated_at}}</td>
                                 <td>{{$user[$id_user]->rango}}</td>
 
-                                @if($user[$id_user]->rango == 2 && $user[$id_user]->id == $user_id)
-                                    <td>Mismo User y Moderador</td>
-                                @elseif($user[$id_user]->rango == 2 && $user[$id_user]->id != $user_id)
-                                    <td>Distinto User pero Moderador</td>
-                                @elseif($user[$id_user]->rango != 2 && $user[$id_user]->id == $user_id)
-                                    <td>Mismo User pero no es Moderador</td>
-                                @else
-                                    <td>Distinto user pero no es Moderador</dt>
+                                @if ($user[$id_user]->id == $user_id)
+                                    <td>
+                                        <a href="{{route('post.edit',$item)}}"><button class="bg-blue-400">Editar</button></a>
+                                        <a href="#" onclick="return confirm('¿Seguro?')"><button class="bg-red-400">Borrar</button></a>
+                                    </td>
+                                @elseif ($user[($user_id-1)]->rango == 2)
+                                    <td><a href="#" onclick="return confirm('¿Seguro?')"><button class="bg-yellow-400">Moderar</button></a></td>
                                 @endif
+
                               </tr>
                             @endforeach
                         </tr>
