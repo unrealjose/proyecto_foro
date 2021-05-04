@@ -21,7 +21,8 @@ class PostController extends Controller
         $user = User::orderBy('id')->get();
         $user_id = auth()->user()->id;
         //dd($user_id);
-        $posts = Post::orderBy('id')->where('tema_id','=', $tema_id)->get();
+        //$posts = Post::orderBy('id')->where('tema_id','=', $tema_id)->get();
+        $posts = Post::orderBy('id')->where('tema_id','=', $tema_id)->paginate(10)->withQueryString();
         return view('post.index', compact('posts','tema_id','foro_id','user','user_id'));
     }
 
