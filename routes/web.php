@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{ForoController, TemaController, PostController};
+use App\Http\Controllers\{ForoController, TemaController, PostController, UserController};
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::resource('foro', ForoController::class);
 Route::resource('tema', TemaController::class);
 Route::resource('post', PostController::class);
+Route::resource('user', UserController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

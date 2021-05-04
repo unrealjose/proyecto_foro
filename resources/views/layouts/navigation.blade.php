@@ -39,10 +39,14 @@
 
                     <x-slot name="content">
                         <!-- Configuracion -->
-                        <form method="POST" action="{{ route('logout') }}">
+                        @php
+                            $user = auth()->user();
+                        @endphp
+                        <form method="GET" action="{{ route('user.edit',$user) }}">
                             @csrf
+                            @method('GET')
 
-                            <x-dropdown-link :href="route('logout')"
+                            <x-dropdown-link :href="route('user.edit',$user)"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Configuracion') }}

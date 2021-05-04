@@ -75,7 +75,8 @@ class PostController extends Controller
     {
         //dd($post);
         //$foro_id = $req->foro_id;
-        return view('post.edit', compact('post'));
+        $user = auth()->user();
+        return view('post.edit', compact('post','user'));
     }
 
     /**

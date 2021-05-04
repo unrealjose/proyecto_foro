@@ -58,31 +58,31 @@
                         </div>
                     @endforeach
                     <!-- Posts Buenos Buenos Buenos -->
-                </div>
-
-                <!-- Enviar Post -->
-                <div class="w-full m-1">
-                    <div class="bg-gray-400 border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                        <div class="flex items-center">
-                            <img class="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink">
-                            <div class="text-sm">
-                                <p class="text-black leading-none">{{$user[($user_id-1)]->name}}</p>
-                                <p>Quitar // {{$user[($user_id-1)]->rango}}</p>
+                    <br><hr><br>
+                    <!-- Enviar Post -->
+                    <div class="w-full m-1">
+                        <div class="bg-gray-400 border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                            <div class="flex items-center">
+                                <img class="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink">
+                                <div class="text-sm">
+                                    <p class="text-black leading-none">{{$user[($user_id-1)]->name}}</p>
+                                    <p>Quitar // {{$user[($user_id-1)]->rango}}</p>
+                                </div>
+                            </div>
+                            <div class="mb-8">
+                                <form name="form" method="POST" action="{{route('post.store')}}">
+                                    @csrf
+                                    <br>
+                                    <textarea class="bg-gray-300" name="mensaje" required></textarea>
+                                    <input type="hidden" name="foro_id" value="{{$foro_id}}">
+                                    <input type="hidden" name="tema_id" value="{{$tema_id}}">
+                                    <button type="submit"><i class="far fa-envelope"></i></button>
+                                </form>
                             </div>
                         </div>
-                        <div class="mb-8">
-                            <form name="form" method="POST" action="{{route('post.store')}}">
-                                @csrf
-                                <textarea class="bg-gray-300" name="mensaje"></textarea>
-                                <input type="hidden" name="foro_id" value="{{$foro_id}}">
-                                <input type="hidden" name="tema_id" value="{{$tema_id}}">
-                                <button type="submit"><i class="far fa-envelope"></i></button>
-                            </form>
-                        </div>
                     </div>
+
                 </div>
-
-
             </div>
             <div class="mt-2">
                 {{ $posts->links() }}
