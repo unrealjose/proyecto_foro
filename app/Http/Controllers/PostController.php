@@ -104,6 +104,15 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        //dd($post);
+        if ($post->user_id == auth()->user()->id) {
+            $post->mensaje = "Mensaje eliminado por el autor";
+        }else{
+            $post->mensaje = "Este mensaje ha sido moderado";
+        }
+
+        $post->moderado = 1;
+        $post->update();
+        return redirect()->route('foro.index');
     }
 }

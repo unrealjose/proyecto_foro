@@ -25,19 +25,29 @@
                                     $id_user = $num_id_user-1;
                                 @endphp
                                 <td>{{$user[$id_user]->name}}</td>
-                                <td>{{$item->mensaje}}</td>
+                                @if ($item->moderado == 1)
+                                    <td><i>{{$item->mensaje}}</i></td>
+                                @else
+                                    <td>{{$item->mensaje}}</td>
+                                @endif
                                 <td>{{$item->updated_at}}</td>
                                 <td>{{$user[$id_user]->rango}}</td>
-
-                                @if ($user[$id_user]->id == $user_id)
+                                @if ($item->moderado == 1)
+                                    <td></td>
+                                @else
                                     <td>
-                                        <a href="{{route('post.edit',$item)}}"><button class="bg-blue-400">Editar</button></a>
-                                        <a href="#" onclick="return confirm('¿Seguro?')"><button class="bg-red-400">Borrar</button></a>
+                                        <form name="f" method="POST" action="{{route('post.destroy', $item)}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            @if ($user[$id_user]->id == $user_id)
+                                                <a href="{{route('post.edit',$item)}}"><button class="bg-blue-400">Editar</button></a>
+                                                <button type="submit" class="bg-red-400">Borrar</button>
+                                            @elseif ($user[($user_id-1)]->rango == 2)
+                                            <button type="submit" class="bg-yellow-400">Moderar</button>
+                                            @endif
+                                        </form>
                                     </td>
-                                @elseif ($user[($user_id-1)]->rango == 2)
-                                    <td><a href="#" onclick="return confirm('¿Seguro?')"><button class="bg-yellow-400">Moderar</button></a></td>
                                 @endif
-
                               </tr>
                             @endforeach
                         </tr>
