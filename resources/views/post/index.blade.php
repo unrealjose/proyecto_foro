@@ -40,30 +40,34 @@
                                         <p class="text-grey-darker text-base">{{$item->mensaje}}</p>
                                     @endif
                                 </div>
-                                <div class="flex items-center">
-                                    <form name="f" method="POST" action="{{route('post.destroy', $item)}}">
-                                        @csrf
-                                        @method('DELETE')
-                                        @if ($user[$id_user]->id == $user_id)
-                                            <a href="{{route('post.edit',$item)}}"><i class="fas fa-edit"></i></a>
-                                            <button type="submit"><i class="far fa-trash-alt"></i></button>
-                                        @elseif ($user[($user_id-1)]->rango == 2)
-                                            <button type="submit"><i class="fas fa-ban"></i></button>
-                                        @endif
-                                    </form>
-                                </div>
+                                @if ($item->moderado != 1)
+                                    <div class="flex items-center">
+                                        <form name="f" method="POST" action="{{route('post.destroy', $item)}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            @if ($user[$id_user]->id == $user_id)
+                                                <a href="{{route('post.edit',$item)}}"><i class="fas fa-edit"></i></a>
+                                                <button type="submit"><i class="far fa-trash-alt"></i></button>
+                                            @elseif ($user[($user_id-1)]->rango == 2)
+                                                <button type="submit"><i class="fas fa-ban"></i></button>
+                                            @endif
+                                        </form>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     @endforeach
                     <!-- Posts Buenos Buenos Buenos -->
                 </div>
 
+                <!-- Enviar Post -->
                 <div class="w-full m-1">
                     <div class="bg-gray-400 border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                         <div class="flex items-center">
                             <img class="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink">
                             <div class="text-sm">
-                                <p class="text-black leading-none">{{$user[$id_user]->name}}</p>
+                                <p class="text-black leading-none">{{$user[($user_id-1)]->name}}</p>
+                                <p>Quitar // {{$user[($user_id-1)]->rango}}</p>
                             </div>
                         </div>
                         <div class="mb-8">
