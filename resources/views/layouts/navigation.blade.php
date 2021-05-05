@@ -46,12 +46,28 @@
                             @csrf
                             @method('GET')
 
+                            <input type="hidden" name="switch" value="conf">
                             <x-dropdown-link :href="route('user.edit',$user)"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Configuracion') }}
                             </x-dropdown-link>
                         </form>
+
+                        <!-- Moderacion -->
+                        @if ($user->rango == 2)
+                            <form method="GET" action="{{ route('user.edit',$user) }}">
+                                @csrf
+                                @method('GET')
+
+                                <input type="hidden" name="switch" value="mod">
+                                <x-dropdown-link :href="route('user.edit',$user)"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                    {{ __('Moderacion') }}
+                                </x-dropdown-link>
+                            </form>
+                        @endif
 
                         <!-- Desconexion -->
                         <form method="POST" action="{{ route('logout') }}">

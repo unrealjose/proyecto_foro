@@ -22,7 +22,7 @@
                               </tr>
                             @endforeach
                         </tr>
-                      </table>
+                    </table>
                 </div>
             </div>
         </div>

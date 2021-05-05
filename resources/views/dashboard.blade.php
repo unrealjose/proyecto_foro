@@ -11,6 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Poner anuncios falsos, ultimos temas creados, u otras cosas raras <br>
 
+                    -Meter imagenes (Al registrarse se asigna una por defecto)
                     -Terminar configuraciones pantalla principal <br>
                     -Crear Perfil (Donde Configuracion y Desconectarse) para poder ver tus datos y estadisticas <br>
                     -Poner en configuraciones de Admin (Con un tab o algo) una pantalla donde ascender gente a Moderador <br>

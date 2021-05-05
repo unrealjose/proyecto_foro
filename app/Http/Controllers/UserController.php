@@ -56,10 +56,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(User $user, Request $req)
     {
-        //dd($user);
-        return view('user.edit', compact('user'));
+        $usuarios = User::orderBy('id')->get();
+
+        if($req->switch == 'conf'){
+            return view('user.edit', compact('user'));
+        }else if($req->switch == 'mod'){
+            return view('user.moderar', compact('usuarios'));
+        }
+
     }
 
     /**
@@ -71,8 +77,6 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //dd($request);
-        //dd(auth()->user());
 
         if($request->switch == 'password'){
             if(Hash::check($request->password, auth()->user()->password)){
@@ -94,6 +98,16 @@ class UserController extends Controller
             $user->update();
             return redirect()->route('foro.index');
             //return redirect()->route('foro.index')->with('msg','Nombre cambiado')
+        }
+
+        if ($request->mod == 'subir') {
+            $user->rango = 1;
+            $user->update();
+            return redirect()->route('foro.index');
+        }else if ($request->mod == 'bajar'){
+            $user->rango = 0;
+            $user->update();
+            return redirect()->route('foro.index');
         }
 
         //return redirect()->route('foro.index');
