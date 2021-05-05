@@ -124,10 +124,4 @@ class UserController extends Controller
         //
     }
 
-    //----------------------
-
-    public function cambiarContraseña(Request $request){
-        dd($request);
-        dd(auth()->user());
-    }
 }

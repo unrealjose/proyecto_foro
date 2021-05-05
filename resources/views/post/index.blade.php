@@ -48,7 +48,7 @@
                                             @if ($user[$id_user]->id == $user_id)
                                                 <a href="{{route('post.edit',$item)}}"><i class="fas fa-edit"></i></a>
                                                 <button type="submit"><i class="far fa-trash-alt"></i></button>
-                                            @elseif ($user[($user_id-1)]->rango == 2)
+                                            @elseif ($user[($user_id-1)]->rango == (2||1) && $user[$id_user]->rango != 2)
                                                 <button type="submit"><i class="fas fa-ban"></i></button>
                                             @endif
                                         </form>
