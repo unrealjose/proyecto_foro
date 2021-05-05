@@ -83,31 +83,39 @@ class UserController extends Controller
                 if($request->passwordNuevo == $request->passwordNuevoConfirmacion){
                     $user->password = Hash::make($request->passwordNuevo);
                     $user->update();
-                    return redirect()->route('foro.index');
-                //return redirect()->route('foro.index')->with('msg','Contraseña cambiada')
+                    //return redirect()->route('foro.index');
+                    return redirect()->back();
+                    //return redirect()->back()->with('msg','Contraseña cambiada')
+                    //return redirect()->route('foro.index')->with('msg','Contraseña cambiada')
                 }else{
-                    return redirect()->route('foro.index');
-                    //return redirect()->route('foro.index')->with('msg','Contraseña incorrecta')
+                    //return redirect()->route('foro.index');
+                    return redirect()->back();
+                    //return redirect()->back()->with('msg','Contraseña cambiada')
+                    //return redirect()->route('foro.index')->with('msg','Contraseña cambiada')
                 }
             }else{
-                return redirect()->route('foro.index');
-                //return redirect()->route('foro.index')->with('msg','Contraseña incorrecta')
+                    //return redirect()->route('foro.index');
+                    return redirect()->back();
+                    //return redirect()->back()->with('msg','Contraseña cambiada')
+                    //return redirect()->route('foro.index')->with('msg','Contraseña cambiada')
             }
         }else if($request->switch == 'nombre'){
             $user->name = $request->nombre;
             $user->update();
-            return redirect()->route('foro.index');
-            //return redirect()->route('foro.index')->with('msg','Nombre cambiado')
+            //return redirect()->route('foro.index');
+            return redirect()->back();
+            //return redirect()->back()->with('msg','Contraseña cambiada')
+            //return redirect()->route('foro.index')->with('msg','Contraseña cambiada')
         }
 
         if ($request->mod == 'subir') {
             $user->rango = 1;
             $user->update();
-            return redirect()->route('foro.index');
+            return redirect()->back();
         }else if ($request->mod == 'bajar'){
             $user->rango = 0;
             $user->update();
-            return redirect()->route('foro.index');
+            return redirect()->back();
         }
 
         //return redirect()->route('foro.index');

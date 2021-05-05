@@ -96,6 +96,7 @@ class PostController extends Controller
         $post->mensaje = $request->mensaje;
         $post->update();
         return redirect()->route('foro.index');
+        //return redirect()->back();
     }
 
     /**
