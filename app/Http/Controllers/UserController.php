@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class UserController extends Controller
@@ -68,9 +69,29 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        //dd($request);
+        //dd(auth()->user());
+
+        if($request->switch == 'password'){
+            if(Hash::check($request->password, auth()->user()->password)){
+                if($request->passwordNuevo == $request->passwordNuevoConfirmacion){
+                    $user->password = Hash::make($request->passwordNuevo);
+                    $user->update();
+                    return redirect()->route('foro.index');
+                //return redirect()->route('foro.index')->with('msg','Contraseña cambiada')
+                }else{
+                    return redirect()->route('foro.index');
+                    //return redirect()->route('foro.index')->with('msg','Contraseña incorrecta')
+                }
+            }else{
+                return redirect()->route('foro.index');
+                //return redirect()->route('foro.index')->with('msg','Contraseña incorrecta')
+            }
+        }
+
+        //return redirect()->route('foro.index');
     }
 
     /**
@@ -82,5 +103,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    //----------------------
+
+    public function cambiarContraseña(Request $request){
+        dd($request);
+        dd(auth()->user());
     }
 }
