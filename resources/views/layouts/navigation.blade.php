@@ -99,7 +99,11 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('Novedades') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('foro.index')" :active="request()->routeIs('foro.index')">
+                {{ __('Foro') }}
             </x-responsive-nav-link>
         </div>
 
@@ -119,6 +123,38 @@
             </div>
 
             <div class="mt-3 space-y-1">
+
+                 <!-- Configuracion -->
+                 @php
+                 $user = auth()->user();
+             @endphp
+             <form method="GET" action="{{ route('user.edit',$user) }}">
+                 @csrf
+                 @method('GET')
+
+                 <input type="hidden" name="switch" value="conf">
+                 <x-responsive-nav-link :href="route('user.edit',$user)"
+                         onclick="event.preventDefault();
+                                     this.closest('form').submit();">
+                     {{ __('Configuracion') }}
+                 </x-responsive-nav-link>
+             </form>
+
+             <!-- Moderacion -->
+             @if ($user->rango == 2)
+                 <form method="GET" action="{{ route('user.edit',$user) }}">
+                     @csrf
+                     @method('GET')
+
+                     <input type="hidden" name="switch" value="mod">
+                     <x-responsive-nav-link :href="route('user.edit',$user)"
+                             onclick="event.preventDefault();
+                                         this.closest('form').submit();">
+                         {{ __('Moderacion') }}
+                     </x-responsive-nav-link>
+                 </form>
+             @endif
+
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -126,7 +162,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log out') }}
+                        {{ __('Desconectarse') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

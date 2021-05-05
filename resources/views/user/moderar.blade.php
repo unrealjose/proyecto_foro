@@ -5,6 +5,8 @@
         </h2>
     </x-slot>
 
+    <p>Poner un scope, un buscador o algo que facilite el buscar usuarios</p>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -34,10 +36,10 @@
 
                                         @if ($item->rango == 0)
                                             <input type="hidden" name="mod" value="subir">
-                                            <td><button type="submit">Subir</button></td>
+                                            <td><button type="submit" class="bg-green-400 rounded p-1 m-1"><i class="fas fa-angle-double-up"></i>&nbsp;Subir</button></td>
                                         @elseif ($item->rango == 1)
                                             <input type="hidden" name="mod" value="bajar">
-                                            <td><button type="submit">Bajar</button></td>
+                                            <td><button type="submit" class="bg-red-400 rounded p-1 m-1"><i class="fas fa-angle-double-down"></i>&nbsp;Bajar</button></td>
                                         @else
                                             <td>-</td>
                                         @endif

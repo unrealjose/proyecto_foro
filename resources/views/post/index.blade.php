@@ -23,7 +23,7 @@
                             <div class="bg-gray-300 border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                             @endif
                                 <div class="flex items-center">
-                                    <img class="w-10 h-10 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink">
+                                    <img class="w-10 h-10 rounded-full mr-4" src="{{asset($user[$id_user]->foto)}}">
                                     <div class="text-sm">
                                         <p class="text-black leading-none">{{$user[$id_user]->name}}</p>
                                         <p class="text-grey-dark">{{$item->created_at}}</p>
