@@ -16,6 +16,7 @@
                         <div class="row">
                             <div class="col-2">
                                 <input type="file" name="logo" class="form-control-file" />
+                                <input type="hidden" name="switch" value="imagen">
                             </div>
                         </div>
 
@@ -28,11 +29,24 @@
                         </div>
                     </form>
 
+                    <form name="form" action="{{route('user.update', $user)}}" method="POST" class="mt-3">
+                        @csrf
+                        @method('PUT')
                         <div class="row">
                             <div class="col-2">
                                 <input type="text" name="nombre" required placeholder="{{$user->name}}" class="form-control">
+                                <input type="hidden" name="switch" value="nombre">
                             </div>
                         </div>
+
+                        <div class="row mt-3">
+                            <div class="col">
+                                <button type="submit" class="btn btn-success">Actualizar Nombre</button>
+                                <button type="reset" class="btn btn-warning">Borrar</button>
+                                <a href="{{route('foro.index')}}" class="btn btn-primary">Volver</a>
+                            </div>
+                        </div>
+                    </form>
 
                     <form name="form" action="{{route('user.update', $user)}}" method="POST" class="mt-3">
                         @csrf

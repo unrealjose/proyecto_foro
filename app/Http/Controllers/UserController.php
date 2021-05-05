@@ -89,6 +89,11 @@ class UserController extends Controller
                 return redirect()->route('foro.index');
                 //return redirect()->route('foro.index')->with('msg','Contraseña incorrecta')
             }
+        }else if($request->switch == 'nombre'){
+            $user->name = $request->nombre;
+            $user->update();
+            return redirect()->route('foro.index');
+            //return redirect()->route('foro.index')->with('msg','Nombre cambiado')
         }
 
         //return redirect()->route('foro.index');
