@@ -13,7 +13,7 @@
                     <div class="w-full m-1">
                         <div class="rounded bg-gray-400 border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                             <div class="flex items-center">
-                                <!--<img class="w-10 h-10 rounded-full mr-4" src="asset($user[$id_user]->foto)}}">-->
+                                <img class="w-10 h-10 rounded-full mr-4" src="{{asset($user->foto)}}">
                                 <div class="text-sm">
                                     <p class="text-black leading-none">{{$user->name}}</p>
                                 </div>

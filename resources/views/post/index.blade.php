@@ -46,8 +46,8 @@
                                             @csrf
                                             @method('DELETE')
                                             @if ($user[$id_user]->id == $user_id)
-                                                <a href="{{route('post.edit',$item)}}"><i class="fas fa-edit"></i></a>
-                                                <button class="modal-open"><i class="fas fa-edit"></i></button>
+                                                <a onclick="pruebas()"><i class="fas fa-edit"></i></a> <!-- {route('post.edit',$item)}} -->
+                                                <!--<button class="modal-open"><i class="fas fa-edit"></i></button>-->
                                                 <button type="submit"><i class="far fa-trash-alt"></i></button>
                                             @elseif ($user[($user_id-1)]->rango == (2||1) && $user[$id_user]->rango != 2)
                                                 <button type="submit"><i class="fas fa-ban"></i></button>
@@ -61,9 +61,6 @@
                     <!-- Posts Buenos Buenos Buenos -->
                     <br><hr><br>
                     <!-- Enviar Post -->
-                    @php
-
-                    @endphp
                     <div class="w-full m-1">
                         <div class="bg-gray-400 border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                             <div class="flex items-center">
@@ -87,8 +84,9 @@
                     </div>
                 </div>
 
-                <!-- Cosas Modales-->
-                <!--Modal-->
+                <!--
+                 Cosas Modales
+                Modal
                 <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
                     <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
                     <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
@@ -98,9 +96,9 @@
                             </svg>
                             <span class="text-sm">(Esc)</span>
                         </div>
-                        <!-- Add margin if you want to see some of the overlay behind the modal -->
+                        Add margin if you want to see some of the overlay behind the modal
                         <div class="modal-content py-4 text-left px-6">
-                            <!-- Title -->
+                            Title
                             <div class="flex justify-between items-center pb-3">
                                 <p class="text-2xl font-bold">Editar mensajes</p>
                                 <div class="modal-close cursor-pointer z-50">
@@ -109,8 +107,8 @@
                                     </svg>
                                 </div>
                             </div>
-                            <!-- Body -->
-                            <form name="form" action="{{route('post.update', $posts)}}" method="POST" class="mt-3">
+                            Body
+                            <form name="form" action="#" method="POST" class="mt-3">
                                 @csrf
                                 @method('POST')
                                 <br>
@@ -120,21 +118,21 @@
                                 <div class="mt-2">
                                     <button type="submit" class="bg-green-300 p-1 rounded">Actualizar Post</button>
                                     <button type="reset" class="bg-red-300 p-1 rounded">Borrar</button>
-                                    <a href="{{route('foro.index')}}" class="bg-yellow-300 p-1 rounded">Volver</a>
+                                    <a href="#" class="bg-yellow-300 p-1 rounded">Volver</a>
                                 </div>
                             </form>
                             <p>Antiguo mensaje</p>
                             <textarea name="mensaje" id="mensaje" required>#</textarea>
-                            <!-- Footer -->
+                            Footer
                             <div class="flex justify-end pt-2">
                                 <button class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Action</button>
                                 <button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">Close</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- Cosas Modales-->
-                
+
             </div>
             <div class="mt-2">
                 {{ $posts->links() }}
@@ -144,6 +142,7 @@
 </x-app-layout>
 
 <script>
+
     var openmodal = document.querySelectorAll('.modal-open')
     for (var i = 0; i < openmodal.length; i++) {
         openmodal[i].addEventListener('click', function(event){
