@@ -11,9 +11,13 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Poner anuncios falsos, ultimos temas creados, u otras cosas raras <br>
 
-                    -Meter imagenes (Al registrarse se asigna una por defecto) <br>
+                    -Cambiar de imagenes<br>
                     -Terminar configuraciones pantalla principal <br>
-                    -Crear Perfil (Donde Configuracion y Desconectarse) para poder ver tus datos y estadisticas <br>
+                    -Crear Perfil (Donde Configuracion/Moderacion/Desconectarse) para poder ver tus datos y estadisticas <br>
+                    -Reformar la pantalla foros y temas (Dejarlo presentable) <br>
+                    -Pedir confirmacion al eliminar/moderar comentarios <br>
+                    -Crear ventanas modales para no crear temas/editar post en otra pagina <br>
+
                 </div>
             </div>
         </div>

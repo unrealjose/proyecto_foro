@@ -95,8 +95,8 @@ class PostController extends Controller
         //$post->tema_id = $req->tema_id;
         $post->mensaje = $request->mensaje;
         $post->update();
-        return redirect()->route('foro.index');
-        //return redirect()->back();
+        //return redirect()->route('foro.index');
+        return redirect()->back();
     }
 
     /**
