@@ -95,6 +95,7 @@ class UserController extends Controller
                     //return redirect()->back()->with('msg','Contraseña cambiada')
             }
         }else if($request->switch == 'nombre'){
+            //dd($request);
             $user->name = $request->nombre;
             $user->update();
             return redirect()->back();

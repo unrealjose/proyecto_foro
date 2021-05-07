@@ -25,7 +25,7 @@
                                 <div class="flex items-center">
                                     <img class="w-10 h-10 rounded-full mr-4" src="{{asset($user[$id_user]->foto)}}">
                                     <div class="text-sm">
-                                        <p class="text-black leading-none">{{$user[$id_user]->name}}</p>
+                                        <p class="text-black leading-none">{{$user[$id_user]->name}} <span class="text-gray-00">#{{$user[$id_user]->id}}</span></p>
                                         <p class="text-grey-dark">{{$item->created_at}}</p>
                                         @if ($item->created_at != $item->updated_at && $item->moderado == 0)
                                             <p class="text-grey-dark">(Editado el {{$item->updated_at}})</p>
@@ -46,7 +46,7 @@
                                             @csrf
                                             @method('DELETE')
                                             @if ($user[$id_user]->id == $user_id)
-                                                <a onclick="pruebas()"><i class="fas fa-edit"></i></a> <!-- {route('post.edit',$item)}} -->
+                                            <a href="{{route('post.edit',$item)}}"><i class="fas fa-edit"></i></a>
                                                 <!--<button class="modal-open"><i class="fas fa-edit"></i></button>-->
                                                 <button type="submit"><i class="far fa-trash-alt"></i></button>
                                             @elseif ($user[($user_id-1)]->rango == (2||1) && $user[$id_user]->rango != 2)
@@ -74,7 +74,7 @@
                                 <form name="form" method="POST" action="{{route('post.store')}}">
                                     @csrf
                                     <br>
-                                    <textarea class="bg-gray-300" name="mensaje" required></textarea>
+                                    <textarea class="bg-gray-300 cursor-text" name="mensaje" required></textarea>
                                     <input type="hidden" name="foro_id" value="{{$foro_id}}">
                                     <input type="hidden" name="tema_id" value="{{$tema_id}}">
                                     <button type="submit"><i class="far fa-envelope"></i></button>

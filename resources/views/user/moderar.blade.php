@@ -20,7 +20,7 @@
                         <tr class="bg-gray-100 border-b border-gray-200">
                             @foreach ($usuarios as $item)
                                 <tr class="bg-emerald-200 my-2 py-8">
-                                    <td>{{$item->name}}</td>
+                                    <td>{{$item->name}} -/- {{$item->email}}</td>
 
                                     @if ($item->rango == 0)
                                         <td>Usuario Normal</td>
