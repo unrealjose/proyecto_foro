@@ -11,14 +11,14 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Poner anuncios falsos, ultimos temas creados, u otras cosas raras <br>
 
-                    -Hacer bonita la pantalla de configuraciones <br>
                     -Poner reglas a las contraseñas de configuraciones <br>
+                    -Validaciones <br>
                     -Crear Perfil (Donde Configuracion/Moderacion/Desconectarse) para poder ver tus datos y estadisticas <br>
                     -Reformar la pantalla foros y temas (Dejarlo presentable) <br>
                     -Pedir confirmacion al eliminar/moderar comentarios <br>
                     -Crear ventanas modales para no crear temas/editar post en otra pagina <br>
-                    -Cambiar titulo
-                    -Cambiar Login
+                    -Cambiar titulo <br>
+                    -Cambiar Login <br>
                     -Final: Esta pagina sera borrada y por defecto estara el foro <br>
 
                 </div>
