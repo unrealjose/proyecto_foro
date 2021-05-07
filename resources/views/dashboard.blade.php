@@ -11,7 +11,6 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Poner anuncios falsos, ultimos temas creados, u otras cosas raras <br>
 
-                    -Cambiar de imagenes<br>
                     -Terminar configuraciones pantalla principal <br>
                     -Crear Perfil (Donde Configuracion/Moderacion/Desconectarse) para poder ver tus datos y estadisticas <br>
                     -Reformar la pantalla foros y temas (Dejarlo presentable) <br>

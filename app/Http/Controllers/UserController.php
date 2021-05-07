@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -83,29 +84,36 @@ class UserController extends Controller
                 if($request->passwordNuevo == $request->passwordNuevoConfirmacion){
                     $user->password = Hash::make($request->passwordNuevo);
                     $user->update();
-                    //return redirect()->route('foro.index');
                     return redirect()->back();
-                    //return redirect()->back()->with('msg','Contraseña cambiada')
-                    //return redirect()->route('foro.index')->with('msg','Contraseña cambiada')
+                    //return redirect()->back()->with('msg','Contraseña cambiada');
                 }else{
-                    //return redirect()->route('foro.index');
                     return redirect()->back();
-                    //return redirect()->back()->with('msg','Contraseña cambiada')
                     //return redirect()->route('foro.index')->with('msg','Contraseña cambiada')
                 }
             }else{
-                    //return redirect()->route('foro.index');
                     return redirect()->back();
                     //return redirect()->back()->with('msg','Contraseña cambiada')
-                    //return redirect()->route('foro.index')->with('msg','Contraseña cambiada')
             }
         }else if($request->switch == 'nombre'){
             $user->name = $request->nombre;
             $user->update();
-            //return redirect()->route('foro.index');
             return redirect()->back();
             //return redirect()->back()->with('msg','Contraseña cambiada')
-            //return redirect()->route('foro.index')->with('msg','Contraseña cambiada')
+        }else if($request->switch == 'foto'){
+            if(isset($request['foto'])){
+                $fileImagen = $request->file('foto');
+                $nombre = "img/usuarios/".uniqid()."_".$fileImagen->getClientOriginalName();
+
+                if(basename($user->foto)!="default.jpg"){
+                    //dd("¿Seguro que es la imagen por defecto?",basename($user->foto),basename($request->foto));
+                    unlink($user->foto);
+                }
+
+                Storage::Disk("public")->put($nombre, \File::get($fileImagen));
+                $user->foto = "storage/".$nombre;
+                $user->update();
+                return redirect()->back();
+            }
         }
 
         if ($request->mod == 'subir') {

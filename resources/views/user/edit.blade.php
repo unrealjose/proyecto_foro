@@ -10,13 +10,14 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <form name="form" action="{{route('user.update', $user)}}" method="PUT" enctype="multipart/form-data" class="mt-3">
+                    <form name="form" action="{{route('user.update', $user)}}" method="POST" enctype="multipart/form-data" class="mt-3">
                         @csrf
                         @method('PUT')
                         <div class="row">
                             <div class="col-2">
-                                <input type="file" name="logo" class="form-control-file" />
-                                <input type="hidden" name="switch" value="imagen">
+                                <img class="w-40 h-40 rounded-full mr-4" src="{{asset($user->foto)}}">
+                                <input type="file" name="foto" class="form-control-file" />
+                                <input type="hidden" name="switch" value="foto">
                             </div>
                         </div>
 
