@@ -19,6 +19,7 @@
                     -Crear ventanas modales para no crear temas/editar post en otra pagina <br>
                     -Cambiar titulo <br>
                     -Cambiar Login <br>
+                    -Eliminar usuario, cambiar sus post/nombre/imagen/color post <br>
                     -Final: Esta pagina sera borrada y por defecto estara el foro <br>
 
                 </div>
