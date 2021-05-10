@@ -23,11 +23,19 @@
                     </a>
                     <!-- Fin Boton Nuevo Tema -->
 
+                    @php
+                        //select count(*) from posts where temas_id = tema_actual
+                        $num
+                    @endphp
+
                     <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-200 text-gray-800">
                         <tr class="text-left border-b-2 border-gray-300">
                           <th class="px-4 py-3">Titulo</th>
                           <th class="px-4 py-3">Creador</th>
                           <th class="px-4 py-3">Fecha de creacion</th>
+                          <th class="px-4 py-3">Ultimo Post</th>
+                          <th class="px-4 py-3">Numero Posts</th>
+
                         </tr>
                         <tr class="bg-gray-100 border-b border-gray-200">
                             @foreach ($temas as $item)
@@ -39,6 +47,23 @@
                                 <td><a href="{{route('post.index',['tema_id'=>$item->id,'foro_id'=>$item->foro_id])}}">{{$item->nombre}}</a></td>
                                 <td>{{$user[$id_user]->name}}</td>
                                 <td>{{$item->created_at}}</td>
+                                <td>
+                                    @php
+                                        //var_dump(Illuminate\Support\Facades\DB::select('SELECT user_id FROM posts WHERE tema_id = ? ORDER BY id DESC LIMIT 1', [$item->id])[0]->user_id);
+                                        $id_ultimo = Illuminate\Support\Facades\DB::select('SELECT user_id FROM posts WHERE tema_id = ? ORDER BY id DESC LIMIT 1', [$item->id])[0]->user_id;
+                                        if($id_ultimo == 0){
+                                            echo "-";
+                                        }else{
+                                            echo Illuminate\Support\Facades\DB::select('select name from users where id = ?', [$id_ultimo])[0]->name;
+                                        }
+
+                                    @endphp
+                                </td>
+                                <td>
+                                    @php
+                                        echo count(Illuminate\Support\Facades\DB::select('select * from posts where tema_id = ?', [$item->id]));
+                                    @endphp
+                                </td>
                               </tr>
                             @endforeach
                         </tr>

@@ -16,7 +16,9 @@
                                 <form name="form" action="{{route('tema.store')}}" method="POST" class="mt-3">
                                     @csrf
                                     <br>
+
                                     <input type="text" class="bg-gray-300" name="nombre" required placeholder="Nombre Tema" class="form-control">
+                                    <textarea class="bg-gray-300 rounded" name="mensaje" placeholder="Descripcion del tema" required></textarea>
                                     <input type="hidden" name="foro_id" value="{{$foro_id}}">
                                     <div class="mt-2">
                                         <button type="submit" class="bg-green-300 p-1 rounded">Crear tema</button>

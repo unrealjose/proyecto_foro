@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Post;
 use App\Models\Tema;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TemaController extends Controller
 {
@@ -49,6 +51,13 @@ class TemaController extends Controller
         $tema->foro_id = $request->foro_id;
         $tema->user_id = auth()->user()->id;
         $tema->save();
+
+        $post = new Post();
+        $post->user_id = auth()->user()->id;
+        $post->foro_id = $request->foro_id;
+        $post->tema_id = DB::select("select id from temas order by id desc limit 1")[0]->id;
+        $post->mensaje = $request->mensaje;
+        $post->save();
         //dd($request);
         return redirect()->route('foro.index');
 
