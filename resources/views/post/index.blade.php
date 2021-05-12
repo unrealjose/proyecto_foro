@@ -5,6 +5,16 @@
         </h2>
     </x-slot>
 
+    <style>
+        .abc {
+            display: none;
+        }
+
+        .cba {
+            display: inline;
+        }
+    </style>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -46,11 +56,14 @@
                                             @csrf
                                             @method('DELETE')
                                             @if ($user[$id_user]->id == $user_id)
-                                            <a href="{{route('post.edit',$item)}}"><i class="fas fa-edit"></i></a>
+                                                <!-- Editar Mensaje -->
+                                                <a href="{{route('post.edit',$item)}}" onclick="return confirm('¿Deseas editar este mensaje?')"><i class="fas fa-edit"></i></a>
                                                 <!--<button class="modal-open"><i class="fas fa-edit"></i></button>-->
-                                                <button type="submit"><i class="far fa-trash-alt"></i></button>
+                                                <!-- Borrar Mensaje -->
+                                                <button type="submit" onclick="return confirm('¿Deseas borrar este mensaje?')"><i class="far fa-trash-alt"></i></button>
                                             @elseif ($user[($user_id-1)]->rango == (2||1) && $user[$id_user]->rango != 2)
-                                                <button type="submit"><i class="fas fa-ban"></i></button>
+                                                <!-- Moderar Mensaje -->
+                                                <button type="submit" onclick="return confirm('¿Deseas moderar este mensaje?')"><i class="fas fa-ban"></i></button>
                                             @endif
                                         </form>
                                     </div>
@@ -82,8 +95,15 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Boton volver -->
+                    <a href="{{route('tema.index',['foro_id'=>$posts[0]->foro_id])}}">
+                        <div class="inline-block mr-2 mt-2">
+                            <button type="button" class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gray-500 hover:bg-gray-600 hover:shadow-lg flex items-center">
+                                Volver
+                            </button>
+                        </div>
+                    </a>
                 </div>
-
                 <!--
                  Cosas Modales
                 Modal
@@ -108,13 +128,13 @@
                                 </div>
                             </div>
                             Body
-                            <form name="form" action="#" method="POST" class="mt-3">
-                                @csrf
-                                @method('POST')
+                            <form name="form" action="#" method="GET" class="mt-3">
+                                csrf
+                                method('POST')
                                 <br>
                                 <textarea class="bg-gray-300 rounded" name="mensaje" placeholder="#" required></textarea>
                                 <input type="hidden" name="foro_id" value="#">
-                                <input type="hidden" name="tema_id" value="#">
+                                <input type="hidden" name="tema_id" value="#>
                                 <div class="mt-2">
                                     <button type="submit" class="bg-green-300 p-1 rounded">Actualizar Post</button>
                                     <button type="reset" class="bg-red-300 p-1 rounded">Borrar</button>
@@ -130,8 +150,8 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
-                <!-- Cosas Modales-->
+                </div>
+                Cosas Modales -->
 
             </div>
             <div class="mt-2">
@@ -146,6 +166,7 @@
     var openmodal = document.querySelectorAll('.modal-open')
     for (var i = 0; i < openmodal.length; i++) {
         openmodal[i].addEventListener('click', function(event){
+            console.log(i);
     	    event.preventDefault()
     	    toggleModal()
       })

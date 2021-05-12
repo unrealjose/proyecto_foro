@@ -68,6 +68,14 @@
                             @endforeach
                         </tr>
                     </table>
+                    <!-- Boton volver -->
+                    <a href="{{route('foro.index',['foro_id'=>$temas[0]->foro_id])}}">
+                        <div class="inline-block mr-2 mt-2">
+                            <button type="button" class="focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-gray-500 hover:bg-gray-600 hover:shadow-lg flex items-center">
+                                Volver
+                            </button>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
