@@ -15,7 +15,6 @@
                     -Validaciones <br>
                     -Crear Perfil (Donde Configuracion/Moderacion/Desconectarse) para poder ver tus datos y estadisticas <br>
                     -Reformar la pantalla foros y temas (Dejarlo presentable) <br>
-                    -Crear ventanas modales para no crear temas/editar post en otra pagina <br>
                     -Cambiar titulo <br>
                     -Cambiar Login <br>
                     -Eliminar usuario, cambiar sus post/nombre/imagen/color post <br>

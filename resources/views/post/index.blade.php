@@ -42,7 +42,7 @@
                                 </div>
                                 @if ($item->moderado != 1)
                                     <div class="flex items-center">
-                                        <form name="f" method="POST" action="{route('post.destroy', $item)}}">
+                                        <form name="f" method="POST" action="{{route('post.destroy', $item)}}">
                                             @csrf
                                             @method('DELETE')
                                             @if ($user[$id_user]->id == $user_id)

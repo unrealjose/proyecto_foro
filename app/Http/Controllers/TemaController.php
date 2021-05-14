@@ -58,9 +58,8 @@ class TemaController extends Controller
         $post->tema_id = DB::select("select id from temas order by id desc limit 1")[0]->id;
         $post->mensaje = $request->mensaje;
         $post->save();
-        //dd($request);
-        return redirect()->route('foro.index');
 
+        return redirect()->back();
     }
 
     /**
