@@ -10,13 +10,14 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <!-- Posts Buenos Buenos Buenos -->
+                    <!-- Posts -->
                     @foreach ($posts as $item)
                         @php
                             $num_id_user = intval($item->user_id);
                             $id_user = $num_id_user-1;
                         @endphp
                         <div class="w-full m-1">
+                            <!-- Distinto color para tus post y los de los demas -->
                             @if ($user[$id_user]->id == $user_id)
                             <div class="bg-gray-400 border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                             @else
@@ -27,6 +28,7 @@
                                     <div class="text-sm">
                                         <p class="text-black leading-none">{{$user[$id_user]->name}} <span class="text-gray-00">#{{$user[$id_user]->id}}</span></p>
                                         <p class="text-grey-dark">{{$item->created_at}}</p>
+                                        <!-- La moderacion tambien es una actualizacion, por eso hay que tenerlo en cuenta-->
                                         @if ($item->created_at != $item->updated_at && $item->moderado == 0)
                                             <p class="text-grey-dark">(Editado el {{$item->updated_at}})</p>
                                         @endif
@@ -45,11 +47,13 @@
                                         <form name="f" method="POST" action="{{route('post.destroy', $item)}}">
                                             @csrf
                                             @method('DELETE')
+                                            <!-- Si el post es tuyo -->
                                             @if ($user[$id_user]->id == $user_id)
                                                 <!-- Editar Mensaje -->
                                                 <button class="modal-open" data-item-foro-id="{{ $item->foro_id }}" data-item-tema-id="{{ $item->tema_id }}" data-item-mensaje="{{ $item->mensaje }}" data-item-post="{{$item}}"><i class="fas fa-edit"></i></button>
                                                 <!-- Borrar Mensaje -->
                                                 <button type="submit" onclick="return confirm('¿Deseas borrar este mensaje?')"><i class="far fa-trash-alt"></i></button>
+                                            <!-- Si el post no es tuyo pero eres Moderador/Admin -->
                                             @elseif ($user[($user_id-1)]->rango == (2||1) && $user[$id_user]->rango != 2)
                                                 <!-- Moderar Mensaje -->
                                                 <button type="submit" onclick="return confirm('¿Deseas moderar este mensaje?')"><i class="fas fa-ban"></i></button>
@@ -60,7 +64,6 @@
                             </div>
                         </div>
                     @endforeach
-                    <!-- Posts Buenos Buenos Buenos -->
                     <br><hr><br>
                     <!-- Enviar Post -->
                     <div class="w-full m-1">
@@ -69,7 +72,6 @@
                                 <img class="w-10 h-10 rounded-full mr-4" src="{{asset($user[$user_id-1]->foto)}}">
                                 <div class="text-sm">
                                     <p class="text-black leading-none">{{$user[($user_id-1)]->name}}</p>
-                                    <p>Quitar // {{$user[($user_id-1)]->rango}}</p>
                                 </div>
                             </div>
                             <div class="mb-8">
@@ -84,6 +86,7 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- Boton volver -->
                     <a href="{{route('tema.index',['foro_id'=>$posts[0]->foro_id])}}">
                         <div class="inline-block mr-2 mt-2">
@@ -93,9 +96,8 @@
                         </div>
                     </a>
                 </div>
-                <!--
-                 Cosas Modales
-                Modal -->
+
+                <!-- Ventana modal -->
                 <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
                     <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
                     <div class="modal-container bg-gray-400 w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
@@ -136,7 +138,7 @@
                         </div>
                     </div>
                 </div>
-               <!-- Cosas Modales -->
+               <!-- Fin ventana modal -->
 
             </div>
             <div class="mt-2">
@@ -145,6 +147,8 @@
         </div>
     </div>
 </x-app-layout>
+
+<!-- Script enfocados a la ventana modal -->
 
 <script>
 
@@ -198,6 +202,3 @@
         body.classList.toggle('modal-active')
     }
 </script>
-
-<!-- https://tailwindcomponents.com/component/horizontal-card -->
-<!-- https://tailwindcomponents.com/component/simple-card -->
