@@ -15,20 +15,26 @@ class TemaSeeder extends Seeder
     public function run()
     {
         Tema::create([
-            'nombre'=>'Nuevos cambios',
+            'nombre'=>'Reglas Anuncios',
             'foro_id'=>1,
             'user_id'=>1
         ]);
 
         Tema::create([
-            'nombre'=>'Nuevos cambios 2',
-            'foro_id'=>1,
-            'user_id'=>1
-        ]);
-
-        Tema::create([
-            'nombre'=>'AAA',
+            'nombre'=>'Reglas Informacion',
             'foro_id'=>2,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'Reglas General',
+            'foro_id'=>3,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'Reglas Off-topic',
+            'foro_id'=>4,
             'user_id'=>1
         ]);
     }

@@ -6,6 +6,14 @@
     </x-slot>
 
     <div class="py-12">
+        
+        <!-- Mensaje -->
+        @if($text=Session::get("msg"))
+            <div class="block text-sm text-left text-indigo-600 bg-indigo-200 border border-indigo-400 h-12 flex items-center p-4 rounded-sm" role="alert">
+                {{$text}}
+            </div>
+        @endif
+
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
                     <!-- SEÑAL -->
@@ -117,6 +125,13 @@
                         @csrf
                         @method('PUT')
                         <div>
+                            <!-- Mensaje Error en la contraseña -->
+                            @if($text=Session::get("error_password"))
+                                <div class="block text-sm text-left text-red-600 bg-red-200 border border-red-400 h-12 flex items-center p-4 rounded-sm" role="alert">
+                                    {{$text}}
+                                </div>
+                            @endif
+
                             <label class="text-sm text-gray-400">Contraseña actual</label>
                             <div class="w-full inline-flex border">
                                 <div class="w-1/12 pt-2 bg-gray-100">

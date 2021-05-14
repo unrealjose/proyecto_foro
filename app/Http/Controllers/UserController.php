@@ -84,36 +84,35 @@ class UserController extends Controller
                 if($request->passwordNuevo == $request->passwordNuevoConfirmacion){
                     $user->password = Hash::make($request->passwordNuevo);
                     $user->update();
-                    return redirect()->back();
-                    //return redirect()->back()->with('msg','Contraseña cambiada');
+                    //return redirect()->back();
+                    return redirect()->back()->with('msg','Contraseña cambiada satisfactoriamente');
                 }else{
-                    return redirect()->back();
-                    //return redirect()->route('foro.index')->with('msg','Contraseña cambiada')
+                    //return redirect()->back();
+                    return redirect()->back()->with('error_password','La nueva contraseña no coincide con la repetida');
                 }
             }else{
-                    return redirect()->back();
-                    //return redirect()->back()->with('msg','Contraseña cambiada')
+                    //return redirect()->back();
+                    return redirect()->back()->with('error_password','Contraseña equivocada');
             }
         }else if($request->switch == 'nombre'){
             //dd($request);
             $user->name = $request->nombre;
             $user->update();
-            return redirect()->back();
-            //return redirect()->back()->with('msg','Contraseña cambiada')
+            //return redirect()->back();
+            return redirect()->back()->with('msg','Nombre cambiado');
         }else if($request->switch == 'foto'){
             if(isset($request['foto'])){
                 $fileImagen = $request->file('foto');
                 $nombre = "img/usuarios/".uniqid()."_".$fileImagen->getClientOriginalName();
 
                 if(basename($user->foto)!="default.jpg"){
-                    //dd("¿Seguro que es la imagen por defecto?",basename($user->foto),basename($request->foto));
                     unlink($user->foto);
                 }
 
                 Storage::Disk("public")->put($nombre, \File::get($fileImagen));
                 $user->foto = "storage/".$nombre;
                 $user->update();
-                return redirect()->back();
+                return redirect()->back()->with('msg','Imagen cambiada');
             }
         }
 
@@ -127,7 +126,6 @@ class UserController extends Controller
             return redirect()->back();
         }
 
-        //return redirect()->route('foro.index');
     }
 
     /**

@@ -14,7 +14,7 @@ class ForoController extends Controller
      */
     public function index()
     {
-        $foro = Foro::orderBy('nombre')->get();
+        $foro = Foro::orderBy('id')->get();
         return view('foro.index', compact('foro'));
     }
 
