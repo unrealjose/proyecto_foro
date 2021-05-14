@@ -47,11 +47,9 @@
                                             @method('DELETE')
                                             @if ($user[$id_user]->id == $user_id)
                                                 <!-- Editar Mensaje -->
-                                                <!--<a href="{route('post.edit',$item)}}" onclick="return confirm('¿Deseas editar este mensaje?')"><i class="fas fa-edit"></i></a>-->
-                                                <!-- <button class="modal-open"><i class="fas fa-edit"></i></button> -->
                                                 <button class="modal-open" data-item-foro-id="{{ $item->foro_id }}" data-item-tema-id="{{ $item->tema_id }}" data-item-mensaje="{{ $item->mensaje }}" data-item-post="{{$item}}"><i class="fas fa-edit"></i></button>
                                                 <!-- Borrar Mensaje -->
-                                                <<button type="submit" onclick="return confirm('¿Deseas borrar este mensaje?')"><i class="far fa-trash-alt"></i></button>
+                                                <button type="submit" onclick="return confirm('¿Deseas borrar este mensaje?')"><i class="far fa-trash-alt"></i></button>
                                             @elseif ($user[($user_id-1)]->rango == (2||1) && $user[$id_user]->rango != 2)
                                                 <!-- Moderar Mensaje -->
                                                 <button type="submit" onclick="return confirm('¿Deseas moderar este mensaje?')"><i class="fas fa-ban"></i></button>
@@ -100,27 +98,27 @@
                 Modal -->
                 <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
                     <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
-                    <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+                    <div class="modal-container bg-gray-400 w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
                         <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
                             <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                                 <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
                             </svg>
                             <span class="text-sm">(Esc)</span>
                         </div>
-                        Add margin if you want to see some of the overlay behind the modal
+
                         <div class="modal-content py-4 text-left px-6">
-                            Title
+
                             <div class="flex justify-between items-center pb-3">
-                                <p class="text-2xl font-bold">Editar mensajes</p>
+                                <p class="text-2xl font-bold">Editar mensaje</p>
                                 <div class="modal-close cursor-pointer z-50">
                                     <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                                         <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
                                     </svg>
                                 </div>
                             </div>
-                            Body
 
-                            <form name="form" action="{{route('post.update', $item)}}" method="POST" class="mt-3"> <!-- action="{route('post.update', $post)}}" -->
+
+                            <form name="form" action="{{route('post.update', $item)}}" method="POST" class="mt-3">
                                 @csrf
                                 @method('PUT')
                                 <br>
@@ -128,22 +126,13 @@
                                 <input type="hidden" name="foro_id" id="foro_id">
                                 <input type="hidden" name="tema_id" id="tema_id">
                                 <input type="hidden" name="post_info" id="post_info">
-                                @php
-                                    //$post = $_POST['post'];
-                                    //dd('Hola',$_POST['post']);
-                                @endphp
-                                <textarea class="bg-gray-300 rounded" name="mensaje" placeholder="#tema_id" required></textarea>
+
+                                <textarea class="bg-gray-300 rounded" name="mensaje" id="mensaje" placeholder="" required></textarea>
                                 <div class="mt-2">
                                     <button type="submit" class="bg-green-300 p-1 rounded">Actualizar Post</button>
                                     <button type="reset" class="bg-red-300 p-1 rounded">Borrar</button>
-                                    <a href="#" class="bg-yellow-300 p-1 rounded">Volver</a>
                                 </div>
                             </form>
-                            Footer
-                            <div class="flex justify-end pt-2">
-                                <button class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Action</button>
-                                <button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">Close</button>
-                            </div>
                         </div>
                     </div>
                 </div>
