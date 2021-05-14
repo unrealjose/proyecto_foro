@@ -5,16 +5,6 @@
         </h2>
     </x-slot>
 
-    <style>
-        .abc {
-            display: none;
-        }
-
-        .cba {
-            display: inline;
-        }
-    </style>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -52,15 +42,16 @@
                                 </div>
                                 @if ($item->moderado != 1)
                                     <div class="flex items-center">
-                                        <form name="f" method="POST" action="{{route('post.destroy', $item)}}">
+                                        <form name="f" method="POST" action="{route('post.destroy', $item)}}">
                                             @csrf
                                             @method('DELETE')
                                             @if ($user[$id_user]->id == $user_id)
                                                 <!-- Editar Mensaje -->
-                                                <a href="{{route('post.edit',$item)}}" onclick="return confirm('¿Deseas editar este mensaje?')"><i class="fas fa-edit"></i></a>
-                                                <!--<button class="modal-open"><i class="fas fa-edit"></i></button>-->
+                                                <!--<a href="{route('post.edit',$item)}}" onclick="return confirm('¿Deseas editar este mensaje?')"><i class="fas fa-edit"></i></a>-->
+                                                <!-- <button class="modal-open"><i class="fas fa-edit"></i></button> -->
+                                                <button class="modal-open" data-item-foro-id="{{ $item->foro_id }}" data-item-tema-id="{{ $item->tema_id }}" data-item-mensaje="{{ $item->mensaje }}" data-item-post="{{$item}}"><i class="fas fa-edit"></i></button>
                                                 <!-- Borrar Mensaje -->
-                                                <button type="submit" onclick="return confirm('¿Deseas borrar este mensaje?')"><i class="far fa-trash-alt"></i></button>
+                                                <<button type="submit" onclick="return confirm('¿Deseas borrar este mensaje?')"><i class="far fa-trash-alt"></i></button>
                                             @elseif ($user[($user_id-1)]->rango == (2||1) && $user[$id_user]->rango != 2)
                                                 <!-- Moderar Mensaje -->
                                                 <button type="submit" onclick="return confirm('¿Deseas moderar este mensaje?')"><i class="fas fa-ban"></i></button>
@@ -106,7 +97,7 @@
                 </div>
                 <!--
                  Cosas Modales
-                Modal
+                Modal -->
                 <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
                     <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
                     <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
@@ -128,21 +119,26 @@
                                 </div>
                             </div>
                             Body
-                            <form name="form" action="#" method="GET" class="mt-3">
-                                csrf
-                                method('POST')
+
+                            <form name="form" action="{{route('post.update', $item)}}" method="POST" class="mt-3"> <!-- action="{route('post.update', $post)}}" -->
+                                @csrf
+                                @method('PUT')
                                 <br>
-                                <textarea class="bg-gray-300 rounded" name="mensaje" placeholder="#" required></textarea>
-                                <input type="hidden" name="foro_id" value="#">
-                                <input type="hidden" name="tema_id" value="#>
+
+                                <input type="hidden" name="foro_id" id="foro_id">
+                                <input type="hidden" name="tema_id" id="tema_id">
+                                <input type="hidden" name="post_info" id="post_info">
+                                @php
+                                    //$post = $_POST['post'];
+                                    //dd('Hola',$_POST['post']);
+                                @endphp
+                                <textarea class="bg-gray-300 rounded" name="mensaje" placeholder="#tema_id" required></textarea>
                                 <div class="mt-2">
                                     <button type="submit" class="bg-green-300 p-1 rounded">Actualizar Post</button>
                                     <button type="reset" class="bg-red-300 p-1 rounded">Borrar</button>
                                     <a href="#" class="bg-yellow-300 p-1 rounded">Volver</a>
                                 </div>
                             </form>
-                            <p>Antiguo mensaje</p>
-                            <textarea name="mensaje" id="mensaje" required>#</textarea>
                             Footer
                             <div class="flex justify-end pt-2">
                                 <button class="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Action</button>
@@ -151,7 +147,7 @@
                         </div>
                     </div>
                 </div>
-                Cosas Modales -->
+               <!-- Cosas Modales -->
 
             </div>
             <div class="mt-2">
@@ -163,19 +159,31 @@
 
 <script>
 
+    $(document).on("click", ".modal-open", function () {
+        var foroId = $(this).attr('data-item-foro-id');
+        var temaId = $(this).attr('data-item-tema-id');
+        var mensaje = $(this).attr('data-item-mensaje');
+        var post = $(this).attr('data-item-post');
+        console.log(mensaje);
+        $("#foro_id").val(foroId);
+        $("#tema_id").val(temaId);
+        $("#mensaje").val(mensaje);
+        $("#post_info").val(post);
+    });
+
     var openmodal = document.querySelectorAll('.modal-open')
     for (var i = 0; i < openmodal.length; i++) {
         openmodal[i].addEventListener('click', function(event){
             console.log(i);
-    	    event.preventDefault()
-    	    toggleModal()
+    	    event.preventDefault();
+    	    toggleModal();
       })
     }
 
-    const overlay = document.querySelector('.modal-overlay')
-    overlay.addEventListener('click', toggleModal)
+    const overlay = document.querySelector('.modal-overlay');
+    overlay.addEventListener('click', toggleModal);
 
-    var closemodal = document.querySelectorAll('.modal-close')
+    var closemodal = document.querySelectorAll('.modal-close');
     for (var i = 0; i < closemodal.length; i++) {
         closemodal[i].addEventListener('click', toggleModal)
     }

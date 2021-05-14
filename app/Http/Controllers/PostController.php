@@ -88,13 +88,28 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //dd($request);
+
+        $data = $request->post_info;
+        $manage = json_decode($data, true);
+
+        //dd($manage['id']);
+        $a = Post::where('id','=', $manage['id'])->LIMIT(1)->get();
+
+        //dd($a[0]->mensaje);
+        //dd($post,"---",$manage[0]);
+
         //$post = new Post();
-        //$post->user_id = auth()->user()->id;
-        //$post->foro_id = $req->foro_id;
-        //$post->tema_id = $req->tema_id;
-        $post->mensaje = $request->mensaje;
-        $post->update();
+        $a[0]->id = $a[0]->id;
+        $a[0]->mensaje = $request->mensaje;
+        $a[0]->moderado = $a[0]->moderado;
+        $a[0]->foro_id = $a[0]->foro_id;
+        $a[0]->user_id = auth()->user()->id;
+        $a[0]->tema_id = $a[0]->tema_id;
+        $a[0]->created_at = $a[0]->created_at;
+        $a[0]->updated_at = $a[0]->updated_at;
+        //dd($a[0]);
+        //dd($post);
+        $a[0]->update();
         //return redirect()->route('foro.index');
         return redirect()->back();
     }
@@ -107,7 +122,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //dd($post);
         if ($post->user_id == auth()->user()->id) {
             $post->mensaje = "Mensaje eliminado por el autor";
         }else{
