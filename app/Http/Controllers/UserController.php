@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PasswordRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -79,9 +78,8 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        if($request->switch == 'password'){
-            /* Cambio de contraseña */
 
+        if($request->switch == 'password'){
             if(Hash::check($request->password, auth()->user()->password)){
                 if($request->passwordNuevo == $request->passwordNuevoConfirmacion){
                     $user->password = Hash::make($request->passwordNuevo);
@@ -97,20 +95,18 @@ class UserController extends Controller
                     //return redirect()->back()->with('msg','Contraseña cambiada')
             }
         }else if($request->switch == 'nombre'){
-            /* Cambio de nombre */
-
+            //dd($request);
             $user->name = $request->nombre;
             $user->update();
             return redirect()->back();
             //return redirect()->back()->with('msg','Contraseña cambiada')
         }else if($request->switch == 'foto'){
-            /* Cambio de Imagen */
-
             if(isset($request['foto'])){
                 $fileImagen = $request->file('foto');
                 $nombre = "img/usuarios/".uniqid()."_".$fileImagen->getClientOriginalName();
 
                 if(basename($user->foto)!="default.jpg"){
+                    //dd("¿Seguro que es la imagen por defecto?",basename($user->foto),basename($request->foto));
                     unlink($user->foto);
                 }
 
@@ -143,11 +139,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function cambiarContraseña(PasswordRequest $req, User $user)
-    {
-        dd($req);
     }
 
 }

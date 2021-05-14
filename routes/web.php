@@ -23,8 +23,6 @@ Route::resource('tema', TemaController::class);
 Route::resource('post', PostController::class);
 Route::resource('user', UserController::class);
 
-Route::put('users/configuration/password/{id}', '\App\Http\Controllers\UserController@cambiarContraseña')->name('user.cambiarContraseña');
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

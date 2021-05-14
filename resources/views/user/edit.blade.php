@@ -113,7 +113,7 @@
             <div class="md:inline-flex  space-y-4 md:space-y-0  w-full p-4 text-gray-500 items-center">
                 <h2 class="md:w-1/3 mx-auto max-w-sm">Contraseña</h2>
                 <div class="md:w-2/3 mx-auto max-w-sm space-y-5">
-                    <form name="form" action="{{route('user.cambiarContraseña', $user)}}" method="PUT" class="mt-3">
+                    <form name="form" action="{{route('user.update', $user)}}" method="POST" class="mt-3">
                         @csrf
                         @method('PUT')
                         <div>
