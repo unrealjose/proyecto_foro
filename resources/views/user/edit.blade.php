@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        
+
         <!-- Mensaje -->
         @if($text=Session::get("msg"))
             <div class="block text-sm text-left text-indigo-600 bg-indigo-200 border border-indigo-400 h-12 flex items-center p-4 rounded-sm" role="alert">
@@ -101,7 +101,7 @@
                                 <div class="w-1/12 pt-2 bg-gray-100">
                                     <img class="w-10 h-10 object-cover" src="{{asset($user->foto)}}"/>
                                 </div>
-                                <input type="file" name="foto" class="form-control-file" accept="image/*" />
+                                <input type="file" name="foto" class="form-control-file" accept="image/*" required/>
                                 <input type="hidden" name="switch" value="foto">
                             </div>
 

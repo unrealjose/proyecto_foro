@@ -121,6 +121,6 @@ class PostController extends Controller
 
         $post->moderado = 1;
         $post->update();
-        return redirect()->route('foro.index');
+        return redirect()->back();
     }
 }

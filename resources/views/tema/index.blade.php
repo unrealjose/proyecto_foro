@@ -69,6 +69,63 @@
                         </tr>
                     </table>
 
+                    <!-- Intento de dejar bonitas las cosas -->
+
+                    <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-200 text-gray-800">
+                        <tr class="text-left border-b-2 border-gray-300">
+                          <th class="px-4 py-3">Titulo</th>
+                          <th class="px-4 py-3">Numero Posts</th>
+                          <th class="px-4 py-3">Ultimo Post</th>
+                        </tr>
+                        <tr class="bg-gray-100 border-b border-gray-200">
+                            @foreach ($temas as $item)
+                            @php
+                                $num_id_user = intval($item->user_id);
+                                $id_user = $num_id_user-1;
+                            @endphp
+                            <tr class="bg-emerald-200 my-2 py-8">
+                                <td>
+                                    <div>
+                                        <b><a href="{{route('post.index',['tema_id'=>$item->id,'foro_id'=>$item->foro_id])}}">{{$item->nombre}}</a></b>
+                                    </div>
+                                    <div>
+                                        <i>Creado por</i> <b>{{$user[$id_user]->name}}</b> <i>el</i> <b>{{$item->created_at}}</b>
+                                    </div>
+                                </td>
+                                <td>
+                                    @php
+                                        echo count(Illuminate\Support\Facades\DB::select('select * from posts where tema_id = ?', [$item->id]));
+                                    @endphp
+                                </td>
+                                <td>
+                                    <div>
+                                        @php
+                                            //Ultimo usuario en postear
+                                            $id_ultimo = Illuminate\Support\Facades\DB::select('SELECT user_id FROM posts WHERE tema_id = ? ORDER BY id DESC LIMIT 1', [$item->id])[0]->user_id;
+                                            $fecha_ultimo = Illuminate\Support\Facades\DB::select('SELECT created_at FROM posts WHERE tema_id = ? ORDER BY id DESC LIMIT 1', [$item->id])[0]->user_id;
+                                            dd($fecha_ultimo);
+                                            if($id_ultimo == 0){
+                                                echo "<i>Por</i> <b>{{$user[$id_user]->name}}</b>";
+                                                echo "<i>En</i> <b>{{$item->created_at}}</b>";
+                                            }else{
+                                                echo "<i>Por</i> <b>";
+                                                echo Illuminate\Support\Facades\DB::select('select name from users where id = ?', [$id_ultimo])[0]->name;
+                                                echo "</b>";
+                                                //echo "<i>En</i> <b>{{$fecha_ultimo}}</b>";
+                                            }
+                                        @endphp
+                                    </div>
+                                    <div>
+                                        <i>En</i> <b>Fecha</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tr>
+                    </table>
+
+                    <!-- -->
+
                     <!--
                     Cosas Modales
                     Modal -->
