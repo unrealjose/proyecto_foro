@@ -98,26 +98,28 @@
                                     @endphp
                                 </td>
                                 <td>
-                                    <div>
-                                        @php
-                                            //Ultimo usuario en postear
-                                            $id_ultimo = Illuminate\Support\Facades\DB::select('SELECT user_id FROM posts WHERE tema_id = ? ORDER BY id DESC LIMIT 1', [$item->id])[0]->user_id;
-                                            $fecha_ultimo = Illuminate\Support\Facades\DB::select('SELECT created_at FROM posts WHERE tema_id = ? ORDER BY id DESC LIMIT 1', [$item->id])[0]->user_id;
-                                            dd($fecha_ultimo);
-                                            if($id_ultimo == 0){
-                                                echo "<i>Por</i> <b>{{$user[$id_user]->name}}</b>";
-                                                echo "<i>En</i> <b>{{$item->created_at}}</b>";
-                                            }else{
-                                                echo "<i>Por</i> <b>";
-                                                echo Illuminate\Support\Facades\DB::select('select name from users where id = ?', [$id_ultimo])[0]->name;
-                                                echo "</b>";
-                                                //echo "<i>En</i> <b>{{$fecha_ultimo}}</b>";
-                                            }
-                                        @endphp
-                                    </div>
-                                    <div>
-                                        <i>En</i> <b>Fecha</b>
-                                    </div>
+                                    @php
+                                        //Ultimo usuario en postear
+                                        $id_ultimo = Illuminate\Support\Facades\DB::select('SELECT user_id FROM posts WHERE tema_id = ? ORDER BY id DESC LIMIT 1', [$item->id])[0]->user_id;
+                                        $fecha_ultimo = Illuminate\Support\Facades\DB::select('SELECT created_at FROM posts WHERE tema_id = ? ORDER BY id DESC LIMIT 1', [$item->id])[0]->created_at;
+                                        if($id_ultimo == 0){
+                                            echo "<div>";
+                                            echo "<i>Por</i> <b>{{$user[$id_user]->name}}</b>";
+                                            echo "</div>";
+                                            echo "<div>";
+                                            echo "<i>El</i> <b>$item->created_at</b>";
+                                            echo "</div>";
+                                        }else{
+                                            echo "<div>";
+                                            echo "<i>Por</i> <b>";
+                                            echo Illuminate\Support\Facades\DB::select('select name from users where id = ?', [$id_ultimo])[0]->name;
+                                            echo "</b>";
+                                            echo "</div>";
+                                            echo "<div>";
+                                            echo "<i>El</i> <b>$fecha_ultimo</b>";
+                                            echo "</div>";
+                                        }
+                                    @endphp
                                 </td>
                             </tr>
                             @endforeach
