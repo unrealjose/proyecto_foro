@@ -17,6 +17,7 @@
                     -Reformar la pantalla foros y temas (Dejarlo presentable) <br>
                     -Cambiar titulo <br>
                     -Cambiar Login <br>
+                    -En los temas, crear un campo 'Fijo' para qu algunos temas tipo 'Normas ....' siempre esten primero
                     -Eliminar usuario, cambiar sus post/nombre/imagen/color post <br>
                     -Final: Esta pagina sera borrada y por defecto estara el foro <br>
 

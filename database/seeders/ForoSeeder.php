@@ -41,7 +41,7 @@ class ForoSeeder extends Seeder
 
         Foro::create([
             'nombre'=>'General',
-            'descripcion'=>'Temas Generaless'
+            'descripcion'=>'Temas Generales'
         ]);
 
         Foro::create([
@@ -71,7 +71,7 @@ class ForoSeeder extends Seeder
 
         Foro::create([
             'nombre'=>'Off-Topic',
-            'descripcion'=>''
+            'descripcion'=>'Cualquier cosa no relacionada con este foros'
         ]);
 
     }
