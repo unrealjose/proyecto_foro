@@ -23,9 +23,45 @@
                             @endforeach
                         </tr>
                     </table>
+                    <div >
+                        <ul class="list-none">
+                            <li>Grupo 1</li>
+                            <li>
+                                <ul>
+                                    <li class="inline">Anuncios</li> <span>Numero</span>
+                                    <li><ul><li>Descripcion</li></ul></li>
+                                </ul>
+                                <ul>
+                                    <li>Informacion</li>
+                                    <li><ul><li>Descripcion</li></ul></li>
+                                </ul>
+                            </li>
+                            <li>Grupo 2</li>
+                            <li>
+                                <ul>
+                                    <li>General</li>
+                                    <li><ul><li>Descripcion</li></ul></li>
+                                </ul>
+                                <ul>
+                                    <li>Off-topic</li>
+                                    <li><ul><li>Descripcion</li></ul></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <style>
+        ul > li {
+            margin-left: 30px;
+        }
+
+        li + span {
+            text-decoration: underline;
+        }
+    </style>
 
 </x-app-layout>
