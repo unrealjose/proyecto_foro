@@ -14,24 +14,65 @@ class ForoSeeder extends Seeder
      */
     public function run()
     {
+
+        /*
+            Anuncios
+            Noticias y actualidad
+            General
+
+            Europa
+            Africa
+            Asia
+            America
+            Oceania
+
+            Off-Topic
+        */
+
         Foro::create([
             'nombre'=>'Anuncios',
-            'descripcion'=>'Anuncios de algo'
+            'descripcion'=>'Anuncios relacionados con este foro'
         ]);
 
         Foro::create([
-            'nombre'=>'Informacion',
-            'descripcion'=>'Informacion de algo'
+            'nombre'=>'Noticias y actualidad',
+            'descripcion'=>'Noticias sobre el mundo'
         ]);
 
         Foro::create([
             'nombre'=>'General',
-            'descripcion'=>'General de algo'
+            'descripcion'=>'Temas Generaless'
         ]);
 
         Foro::create([
-            'nombre'=>'Off-topic',
-            'descripcion'=>'Off-topic de lo que sea'
+            'nombre'=>'Europa',
+            'descripcion'=>'Sobre Europa'
         ]);
+
+        Foro::create([
+            'nombre'=>'Africa',
+            'descripcion'=>'Sobre Africa'
+        ]);
+
+        Foro::create([
+            'nombre'=>'Asia',
+            'descripcion'=>'Sobre Asia'
+        ]);
+
+        Foro::create([
+            'nombre'=>'America',
+            'descripcion'=>'Sobre America'
+        ]);
+
+        Foro::create([
+            'nombre'=>'Oceania',
+            'descripcion'=>'Sobre Oceania'
+        ]);
+
+        Foro::create([
+            'nombre'=>'Off-Topic',
+            'descripcion'=>''
+        ]);
+
     }
 }
