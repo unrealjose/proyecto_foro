@@ -7,8 +7,8 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+            <div class="bg-gray overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-gray border-b border-gray-200">
 
                     <!-- Boton Nuevo Tema -->
                     <a  class="modal-open" data-item-foro-id={{$foro_id}}>
@@ -60,7 +60,7 @@
                                         echo count(Illuminate\Support\Facades\DB::select('select * from posts where tema_id = ?', [$item->id]));
                                         @endphp
                                     </td>
-                                    <td class="bg-gray-200  border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">
+                                    <td class="bg-gray-200  border hover:bg-gray-100 p-3 text-black hover:text-red-600 hover:font-medium cursor-pointer">
                                         @php
                                         //Ultimo usuario en postear
                                         $id_ultimo = Illuminate\Support\Facades\DB::select('SELECT user_id FROM posts WHERE tema_id = ? ORDER BY id DESC LIMIT 1', [$item->id])[0]->user_id;

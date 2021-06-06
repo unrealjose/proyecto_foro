@@ -18,8 +18,8 @@
 
                     <!-- SEÑAL -->
 <!-- INICIO INTENTO HACER ESTA PAGINA BONITA -->
-    <div class="mx-auto container max-w-2xl md:w-3/4 shadow-md">
-        <div class="bg-gray-100 p-4 border-t-2 bg-opacity-5 border-indigo-400 rounded-t">
+    <div class="mx-auto container max-w-2xl md:w-3/4 shadow-md bg-gray-200">
+        <div class="bg-gray-100 p-4 ">
             <div class="max-w-sm mx-auto md:w-full md:mx-0">
                 <div class="inline-flex items-center space-x-4">
                     <img
@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class="bg-white space-y-6">
+        <div class="bg-white bg-gray-50 space-y-6">
             <div class="md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center">
                 <h2 class="md:w-1/3 max-w-sm mx-auto">Cuenta</h2>
                 <div class="md:w-2/3 max-w-sm mx-auto">

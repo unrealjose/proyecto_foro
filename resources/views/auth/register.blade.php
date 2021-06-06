@@ -1,9 +1,9 @@
-<x-guest-layout>
-    <x-auth-card>
+<x-guest-layout class="bg-gray-400">
+    <x-auth-card class="bg-gray-400">
         <x-slot name="logo">
         </x-slot>
 
-        <!-- Validation Errors -->
+        <!-- Errores de validacion -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
         <form method="POST" action="{{ route('register') }}">
