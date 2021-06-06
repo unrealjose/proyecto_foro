@@ -77,5 +77,406 @@ class PostSeeder extends Seeder
             'tema_id'=>9
         ]);
 
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>10
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>11
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>12
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>13
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>14
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>15
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>16
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>17
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>18
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>19
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>20
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>21
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>22
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>23
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>24
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>25
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>26
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>27
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>28
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>29
+        ]);
+
+        Post::create([
+            'mensaje'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>30
+        ]);
+
+        //aaaaaaaaaaaaaaa
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
+        Post::create([
+            'mensaje'=>'....',
+            'foro_id'=>9,
+            'user_id'=>1,
+            'tema_id'=>9
+        ]);
+
     }
 }

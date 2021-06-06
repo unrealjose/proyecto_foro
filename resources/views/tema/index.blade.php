@@ -27,78 +27,41 @@
                         $num
                     @endphp
 
-                    <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-200 text-gray-800">
-                        <tr class="text-left border-b-2 border-gray-300">
-                          <th class="px-4 py-3">Titulo</th>
-                          <th class="px-4 py-3">Creador</th>
-                          <th class="px-4 py-3">Fecha de creacion</th>
-                          <th class="px-4 py-3">Ultimo Post</th>
-                          <th class="px-4 py-3">Numero Posts</th>
+                    <!-- Otro -->
 
-                        </tr>
-                        <tr class="bg-gray-100 border-b border-gray-200">
-                            @foreach ($temas as $item)
-                            <tr class="bg-emerald-200 my-2 py-8">
+                    <div class="container">
+                        <table class=" w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
+                            <thead class="text-black">
+                                @foreach ($temas as $item)
+                                <tr class="bg-gray-300 flex-col flex-no wrap hidden sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                                    <th class="p-3 text-left">Tituto</th>
+                                    <th class="p-3 text-left bg-gray-200 hidden sm:block" >Numero Posts</th>
+                                    <th class="p-3 text-left bg-gray-200" width="110px">Ultimo Post</th>
+                                </tr>
+                                @endforeach
+                            </thead>
+                            <tbody class="bg-gray-200 flex-1 sm:flex-none">
+                                @foreach ($temas as $item)
                                 @php
                                     $num_id_user = intval($item->user_id);
                                     $id_user = $num_id_user-1;
                                 @endphp
-                                <td><a href="{{route('post.index',['tema_id'=>$item->id,'foro_id'=>$item->foro_id])}}">{{$item->nombre}}</a></td>
-                                <td>{{$user[$id_user]->name}}</td>
-                                <td>{{$item->created_at}}</td>
-                                <td>
-                                    @php
-                                        //Ultimo usuario en postear
-                                        $id_ultimo = Illuminate\Support\Facades\DB::select('SELECT user_id FROM posts WHERE tema_id = ? ORDER BY id DESC LIMIT 1', [$item->id])[0]->user_id;
-                                        if($id_ultimo == 0){
-                                            echo "-";
-                                        }else{
-                                            echo Illuminate\Support\Facades\DB::select('select name from users where id = ?', [$id_ultimo])[0]->name;
-                                        }
-
-                                    @endphp
-                                </td>
-                                <td>
-                                    @php
-                                        // Numero de post en este tema
+                                <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+                                    <td class="bg-gray-300 border hover:bg-gray-100 p-3">
+                                        <div>
+                                            <b><a href="{{route('post.index',['tema_id'=>$item->id,'foro_id'=>$item->foro_id])}}">{{$item->nombre}}</a></b>
+                                        </div>
+                                        <div>
+                                            <i>Creado por</i> <b>{{$user[$id_user]->name}}</b> <i>el</i> <b>{{$item->created_at}}</b>
+                                        </div>
+                                    </td>
+                                    <td class="bg-gray-200  border hover:bg-gray-100 p-3 truncate hidden sm:inline-block">
+                                        @php
                                         echo count(Illuminate\Support\Facades\DB::select('select * from posts where tema_id = ?', [$item->id]));
-                                    @endphp
-                                </td>
-                              </tr>
-                            @endforeach
-                        </tr>
-                    </table>
-
-                    <!-- Intento de dejar bonitas las cosas -->
-
-                    <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-200 text-gray-800">
-                        <tr class="text-left border-b-2 border-gray-300">
-                          <th class="px-4 py-3">Titulo</th>
-                          <th class="px-4 py-3">Numero Posts</th>
-                          <th class="px-4 py-3">Ultimo Post</th>
-                        </tr>
-                        <tr class="bg-gray-100 border-b border-gray-200">
-                            @foreach ($temas as $item)
-                            @php
-                                $num_id_user = intval($item->user_id);
-                                $id_user = $num_id_user-1;
-                            @endphp
-                            <tr class="bg-emerald-200 my-2 py-8">
-                                <td>
-                                    <div>
-                                        <b><a href="{{route('post.index',['tema_id'=>$item->id,'foro_id'=>$item->foro_id])}}">{{$item->nombre}}</a></b>
-                                    </div>
-                                    <div>
-                                        <i>Creado por</i> <b>{{$user[$id_user]->name}}</b> <i>el</i> <b>{{$item->created_at}}</b>
-                                    </div>
-                                </td>
-                                <td>
-                                    @php
-                                        echo count(Illuminate\Support\Facades\DB::select('select * from posts where tema_id = ?', [$item->id]));
-                                    @endphp
-                                </td>
-                                <td>
-                                    @php
+                                        @endphp
+                                    </td>
+                                    <td class="bg-gray-200  border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">
+                                        @php
                                         //Ultimo usuario en postear
                                         $id_ultimo = Illuminate\Support\Facades\DB::select('SELECT user_id FROM posts WHERE tema_id = ? ORDER BY id DESC LIMIT 1', [$item->id])[0]->user_id;
                                         $fecha_ultimo = Illuminate\Support\Facades\DB::select('SELECT created_at FROM posts WHERE tema_id = ? ORDER BY id DESC LIMIT 1', [$item->id])[0]->created_at;
@@ -120,14 +83,14 @@
                                             echo "</div>";
                                         }
                                     @endphp
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tr>
-                    </table>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
 
-                    <!-- -->
-
+                    <!--Fin Otro -->
                     <!--
                     Cosas Modales
                     Modal -->
@@ -184,6 +147,31 @@
             </div>
         </div>
     </div>
+
+    <style>
+        html,
+  body {
+    height: 100%;
+  }
+
+  @media (min-width: 640px) {
+    table {
+      display: inline-table !important;
+    }
+
+    thead tr:not(:first-child) {
+      display: none;
+    }
+  }
+
+  td:not(:last-child) {
+    border-bottom: 0;
+  }
+
+  th:not(:last-child) {
+    border-bottom: 2px solid rgba(0, 0, 0, .1);
+  }
+    </style>
 
     <script>
 

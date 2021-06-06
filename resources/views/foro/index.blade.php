@@ -9,59 +9,62 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-200 text-gray-800">
-                        <tr class="text-left border-b-2 border-gray-300">
-                          <th class="px-4 py-3">Titulo</th>
-                          <th class="px-4 py-3">Descripcion</th>
-                        </tr>
-                        <tr class="bg-gray-100 border-b border-gray-200">
-                            @foreach ($foro as $item)
-                            <tr class="bg-emerald-200 my-2 py-8">
-                                <td><a href="{{route('tema.index',['foro_id'=>$item->id])}}">{{$item->nombre}}</a></td>
-                                <td>{{$item->descripcion}}</td>
-                              </tr>
-                            @endforeach
-                        </tr>
-                    </table>
-                    <div >
-                        <ul class="list-none">
-                            <li>Grupo 1</li>
-                            <li>
-                                <ul>
-                                    <li class="inline">Anuncios</li> <span>Numero</span>
-                                    <li><ul><li>Descripcion</li></ul></li>
-                                </ul>
-                                <ul>
-                                    <li>Informacion</li>
-                                    <li><ul><li>Descripcion</li></ul></li>
-                                </ul>
-                            </li>
-                            <li>Grupo 2</li>
-                            <li>
-                                <ul>
-                                    <li>General</li>
-                                    <li><ul><li>Descripcion</li></ul></li>
-                                </ul>
-                                <ul>
-                                    <li>Off-topic</li>
-                                    <li><ul><li>Descripcion</li></ul></li>
-                                </ul>
-                            </li>
-                        </ul>
+                    
+                    <!-- Prueba -->
+
+                    <div class="container">
+                        <table class=" w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
+                            <thead class="text-black">
+
+                                @foreach ($foro as $item)
+                                <tr class="bg-gray-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                                    <th class="p-3 text-left">Titulo</th>
+                                    <th class="p-3 text-left">Descripcion</th>
+
+                                </tr>
+                                @endforeach
+                            </thead>
+                            <tbody class=" flex-1 sm:flex-none">
+
+                                @foreach ($foro as $item)
+                                <tr class="bg-gray-300 flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+                                    <td class=" hover:bg-gray-100 p-3"><a href="{{route('tema.index',['foro_id'=>$item->id])}}">{{$item->nombre}}</a></td>
+                                    <td class=" hover:bg-gray-100 p-3 truncate">{{$item->descripcion}}</td>
+                                </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
                     </div>
+
+                    <!-- Prueba -->
+
                 </div>
             </div>
         </div>
     </div>
 
     <style>
-        ul > li {
-            margin-left: 30px;
-        }
+        html,
+  body {
+    height: 100%;
+  }
 
-        li + span {
-            text-decoration: underline;
-        }
+  @media (min-width: 640px) {
+    table {
+      display: inline-table !important;
+    }
+
+    thead tr:not(:first-child) {
+      display: none;
+    }
+  }
+
+  td:not(:last-child) {
+    border-bottom: 0;
+  }
+
+
     </style>
 
 </x-app-layout>

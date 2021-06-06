@@ -67,5 +67,133 @@ class TemaSeeder extends Seeder
             'foro_id'=>9,
             'user_id'=>1
         ]);
+
+        //--------------
+
+        Tema::create([
+            'nombre'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'......',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'......',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'......',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'......',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'......',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'......',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'......',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'......',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'......',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'......',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'.....',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'......',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
+
+        Tema::create([
+            'nombre'=>'......',
+            'foro_id'=>9,
+            'user_id'=>1
+        ]);
     }
 }
