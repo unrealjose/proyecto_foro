@@ -19,7 +19,7 @@ class TemaController extends Controller
     {
         //dd($req);
         $foro_id = $req->get('foro_id');
-        $temas = Tema::orderBy('id')->where('foro_id','=', $foro_id)->get();
+        $temas = Tema::orderBy('created_at','desc')->where('foro_id','=', $foro_id)->paginate(10)->withQueryString();;
         $user = User::orderBy('id')->get();
         //dd($temas);
         return view('tema.index', compact('temas','foro_id','user'));

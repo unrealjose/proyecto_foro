@@ -50,13 +50,13 @@
                                             <!-- Si el post es tuyo -->
                                             @if ($user[$id_user]->id == $user_id)
                                                 <!-- Editar Mensaje -->
-                                                <button class="modal-open" data-item-foro-id="{{ $item->foro_id }}" data-item-tema-id="{{ $item->tema_id }}" data-item-mensaje="{{ $item->mensaje }}" data-item-post="{{$item}}"><i class="fas fa-edit"></i></button>
+                                                <button class="modal-open bg-yellow-300 p-1 rounded" data-item-foro-id="{{ $item->foro_id }}" data-item-tema-id="{{ $item->tema_id }}" data-item-mensaje="{{ $item->mensaje }}" data-item-post="{{$item}}">Editar</button>
                                                 <!-- Borrar Mensaje -->
-                                                <button type="submit" onclick="return confirm('¿Deseas borrar este mensaje?')"><i class="far fa-trash-alt"></i></button>
+                                                <button type="submit" onclick="return confirm('¿Deseas borrar este mensaje?')" class="bg-red-300 p-1 rounded">Borrar</button>
                                             <!-- Si el post no es tuyo pero eres Moderador/Admin -->
                                             @elseif ($user[($user_id-1)]->rango == (2||1) && $user[$id_user]->rango != 2)
                                                 <!-- Moderar Mensaje -->
-                                                <button type="submit" onclick="return confirm('¿Deseas moderar este mensaje?')"><i class="fas fa-ban"></i></button>
+                                                <button type="submit" onclick="return confirm('¿Deseas moderar este mensaje?')" class="bg-red-300 p-1 rounded">Moderar</button>
                                             @endif
                                         </form>
                                     </div>
@@ -81,7 +81,7 @@
                                     <textarea class="bg-gray-300 cursor-text" name="mensaje" required></textarea>
                                     <input type="hidden" name="foro_id" value="{{$foro_id}}">
                                     <input type="hidden" name="tema_id" value="{{$tema_id}}">
-                                    <button type="submit"><i class="far fa-envelope"></i></button>
+                                    <button type="submit" class="bg-green-300 p-1 rounded">Enviar</button>
                                 </form>
                             </div>
                         </div>

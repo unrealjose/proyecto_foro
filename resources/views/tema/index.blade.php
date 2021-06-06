@@ -144,7 +144,13 @@
                         </div>
                     </a>
                 </div>
+
             </div>
+
+            <div class="mt-2">
+                {{ $temas->links() }}
+            </div>
+
         </div>
     </div>
 

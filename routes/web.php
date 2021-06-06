@@ -15,7 +15,7 @@ use App\Http\Controllers\{ForoController, TemaController, PostController, UserCo
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::resource('foro', ForoController::class);
