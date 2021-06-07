@@ -27,4 +27,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::group(['middleware' => 'auth'], function(){
+    Route::resource('foro', ForoController::class);
+    Route::resource('tema', TemaController::class);
+    Route::resource('post', PostController::class);
+    Route::resource('user', UserController::class);
+});
+
 require __DIR__.'/auth.php';

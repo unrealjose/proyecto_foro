@@ -9,8 +9,6 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-gray overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-gray border-b border-gray-200">
-
-                    <!-- Posts -->
                     @foreach ($posts as $item)
                         @php
                             $num_id_user = intval($item->user_id);
@@ -24,7 +22,7 @@
                             <div class="bg-gray-300 border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                             @endif
                                 <div class="flex items-center">
-                                    <img class="w-10 h-10 rounded-full mr-4" src="{{asset($user[$id_user]->foto)}}">
+                                    <img class="w-10 h-10 rounded-full mr-4" src="{{asset($user[$id_user]->foto)}}" alt="Imagen usuario">
                                     <div class="text-sm">
                                         <p class="text-black leading-none">{{$user[$id_user]->name}} <span class="text-gray-00">#{{$user[$id_user]->id}}</span></p>
                                         <p class="text-grey-dark">{{$item->created_at}}</p>
@@ -69,7 +67,7 @@
                     <div class="w-full m-1">
                         <div class="bg-gray-400 border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                             <div class="flex items-center">
-                                <img class="w-10 h-10 rounded-full mr-4" src="{{asset($user[$user_id-1]->foto)}}">
+                                <img class="w-10 h-10 rounded-full mr-4" src="{{asset($user[$user_id-1]->foto)}}" alt="Imagen usuario">
                                 <div class="text-sm">
                                     <p class="text-black leading-none">{{$user[($user_id-1)]->name}}</p>
                                 </div>
@@ -148,10 +146,9 @@
     </div>
 </x-app-layout>
 
-<!-- Script enfocados a la ventana modal -->
 
+<!-- Script enfocado a la ventana modal -->
 <script>
-
     $(document).on("click", ".modal-open", function () {
         var foroId = $(this).attr('data-item-foro-id');
         var temaId = $(this).attr('data-item-tema-id');

@@ -90,7 +90,6 @@
                         </table>
                     </div>
 
-                    <!--Fin Otro -->
                     <!--
                     Cosas Modales
                     Modal -->
@@ -156,31 +155,30 @@
 
     <style>
         html,
-  body {
-    height: 100%;
-  }
+        body {
+            height: 100%;
+        }
 
-  @media (min-width: 640px) {
-    table {
-      display: inline-table !important;
-    }
+        @media (min-width: 640px) {
+            table {
+            display: inline-table !important;
+            }
 
-    thead tr:not(:first-child) {
-      display: none;
-    }
-  }
+            thead tr:not(:first-child) {
+            display: none;
+            }
+        }
 
-  td:not(:last-child) {
-    border-bottom: 0;
-  }
+        td:not(:last-child) {
+            border-bottom: 0;
+        }
 
-  th:not(:last-child) {
-    border-bottom: 2px solid rgba(0, 0, 0, .1);
-  }
+        th:not(:last-child) {
+            border-bottom: 2px solid rgba(0, 0, 0, .1);
+        }
     </style>
 
     <script>
-
         $(document).on("click", ".modal-open", function () {
             var foroId = $(this).attr('data-item-foro-id');
             $("#foro_id").val(foroId);
@@ -224,5 +222,4 @@
             body.classList.toggle('modal-active')
         }
     </script>
-
 </x-app-layout>
