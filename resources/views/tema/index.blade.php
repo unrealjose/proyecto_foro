@@ -27,13 +27,11 @@
                         $num
                     @endphp
 
-                    <!-- Otro -->
-
                     <div class="container">
                         <table class=" w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
                             <thead class="text-black">
                                 @foreach ($temas as $item)
-                                <tr class="bg-gray-300 flex-col flex-no wrap hidden sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
+                                <tr class="bg-gray-300 flex-col flex-no wrap hidden sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0 border-b-2 border-gray-400">
                                     <th class="p-3 text-left">Tituto</th>
                                     <th class="p-3 text-left bg-gray-200 hidden sm:block" >Numero Posts</th>
                                     <th class="p-3 text-left bg-gray-200" width="110px">Ultimo Post</th>
@@ -47,7 +45,7 @@
                                     $id_user = $num_id_user-1;
                                 @endphp
                                 <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-                                    <td class="bg-gray-300 border hover:bg-gray-100 p-3">
+                                    <td class="bg-gray-300  hover:bg-gray-100 p-3">
                                         <div>
                                             <b><a href="{{route('post.index',['tema_id'=>$item->id,'foro_id'=>$item->foro_id])}}">{{$item->nombre}}</a></b>
                                         </div>
@@ -170,11 +168,11 @@
         }
 
         td:not(:last-child) {
-            border-bottom: 0;
+            /*border-bottom: 0;*/
         }
 
         th:not(:last-child) {
-            border-bottom: 2px solid rgba(0, 0, 0, .1);
+            /** border-bottom: 2px solid rgba(0, 0, 0, .1);*/
         }
     </style>
 
