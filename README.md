@@ -6,10 +6,10 @@ Foro de debate donde los usuarios que se registren puedan debatir sus ideas, rec
 
 - HTML/CSS/JS
 - [PHP](https://www.php.net/)/[Laravel](https://laravel.com/)
-- [Composer] (https://getcomposer.org/)
+- [Composer](https://getcomposer.org/)
 - Breeze
 
 - [Traduccion validacion](https://packagist.org/packages/laravel-lang/lang)
 
 ## Autor
-Jose Andres Sanchez Perez
+Jose Andres Sanchez Perez 

@@ -7,13 +7,13 @@
 
     <div class="py-12">
 
-        <!-- Mensaje -->
-        @if($text=Session::get("msg"))
+        <!-- Mensaje
+        if($text=Session::get("msg"))
             <div class="block text-sm text-left text-indigo-600 bg-indigo-200 border border-indigo-400 h-12 flex items-center p-4 rounded-sm" role="alert">
-                {{$text}}
+                {$text}}
             </div>
-        @endif
-
+        endif
+        -->
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
                     <!-- SEÑAL -->

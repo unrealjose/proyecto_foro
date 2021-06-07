@@ -17,7 +17,7 @@
                     </x-nav-link>-->
 
                     <x-nav-link :href="route('foro.index')" :active="request()->routeIs('foro.index')">
-                        {{ __('Foro') }}
+                        {{ __('Volver al Foro') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -103,7 +103,7 @@
             </x-responsive-nav-link> -->
 
             <x-responsive-nav-link :href="route('foro.index')" :active="request()->routeIs('foro.index')">
-                {{ __('Foro') }}
+                {{ __('Volver al Foro') }}
             </x-responsive-nav-link>
         </div>
 

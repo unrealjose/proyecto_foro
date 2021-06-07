@@ -45,7 +45,7 @@
                                     $id_user = $num_id_user-1;
                                 @endphp
                                 <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-                                    <td class="bg-gray-300  hover:bg-gray-100 p-3">
+                                    <td class="bg-gray-300 hover:bg-gray-100 p-3">
                                         <div>
                                             <b><a href="{{route('post.index',['tema_id'=>$item->id,'foro_id'=>$item->foro_id])}}">{{$item->nombre}}</a></b>
                                         </div>
@@ -53,12 +53,12 @@
                                             <i>Creado por</i> <b>{{$user[$id_user]->name}}</b> <i>el</i> <b>{{$item->created_at}}</b>
                                         </div>
                                     </td>
-                                    <td class="bg-gray-200  border hover:bg-gray-100 p-3 truncate hidden sm:inline-block">
+                                    <td class="bg-gray-200  border p-3 truncate hidden sm:inline-block">
                                         @php
                                         echo count(Illuminate\Support\Facades\DB::select('select * from posts where tema_id = ?', [$item->id]));
                                         @endphp
                                     </td>
-                                    <td class="bg-gray-200  border hover:bg-gray-100 p-3 text-black hover:text-red-600 hover:font-medium cursor-pointer">
+                                    <td class="bg-gray-200  border p-3 text-black hover:text-red-600 hover:font-medium cursor-pointer">
                                         @php
                                         //Ultimo usuario en postear
                                         $id_ultimo = Illuminate\Support\Facades\DB::select('SELECT user_id FROM posts WHERE tema_id = ? ORDER BY id DESC LIMIT 1', [$item->id])[0]->user_id;
