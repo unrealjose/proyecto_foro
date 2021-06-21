@@ -44,7 +44,6 @@ class PostController extends Controller
      */
     public function store(Request $req)
     {
-       //dd($req);
        $post = new Post();
        $post->user_id = auth()->user()->id;
        $post->foro_id = $req->foro_id;
